@@ -11,6 +11,22 @@ A professional collection of [Agent Skills](https://agentskills.io) for AI-power
 
 This repository provides production-ready Agent Skills that enhance Platonic Coding. All skills follow the [Agent Skills specification](https://agentskills.io/specification) for maximum compatibility across AI coding agents.
 
+## In Practice
+
+### 🚀 Grism: Hypergraph Database in 3 Days
+
+We built [**Grism**](https://github.com/mirasoth/Grism) — an AI-native, neurosymbolic hypergraph database — from concept to working prototype in just **three days** using the Platonic Coding method.
+
+Grism features:
+- **Hypergraph-first architecture** with n-ary relations as the core primitive
+- **Multi-layered engine** (Python API → Logical Plan → Optimizer → Storage)
+- **Neurosymbolic integration** for combining symbolic reasoning with neural signals
+- **Comprehensive RFC specifications** driving all design decisions
+
+By defining the system's form through RFCs before writing code, agents operated within a closed, legally defined space. Every architectural decision was traceable, every component was spec-compliant, and the entire codebase remained coherent across rapid iteration cycles.
+
+*This demonstrates that Platonic Coding doesn't slow you down, it accelerates complex system development by eliminating ambiguity and drift.*
+
 ## Available Skills
 
 ### 📋 platonic-coding-specs
