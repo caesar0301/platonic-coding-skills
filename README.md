@@ -1,4 +1,4 @@
-# AI Coding Skills
+# Platonic Coding Skills
 
 A professional collection of [Agent Skills](https://agentskills.io) for AI-powered development workflows.
 
@@ -51,7 +51,7 @@ If using Claude Code CLI with marketplace support:
 
 ```bash
 # Add the skills marketplace
-claude-code marketplace add caesar0301/ai-coding-skills
+claude-code marketplace add caesar0301/platonic-coding-skills
 ```
 
 ### Method 2: Clone to Skills Directory (Recommended for Most)
@@ -60,10 +60,10 @@ Clone this repository to your agent's skills directory:
 
 ```bash
 # For Claude Code / Cursor / Windsurf
-git clone https://github.com/caesar0301/ai-coding-skills.git ~/.claude/skills/ai-coding-skills
+git clone https://github.com/caesar0301/platonic-coding-skills.git ~/.claude/skills/platonic-coding-skills
 
 # Or use a custom skills directory
-git clone https://github.com/caesar0301/ai-coding-skills.git /path/to/your/skills/ai-coding-skills
+git clone https://github.com/caesar0301/platonic-coding-skills.git /path/to/your/skills/platonic-coding-skills
 ```
 
 ### Verify Installation

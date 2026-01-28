@@ -1,6 +1,6 @@
 # Project Restructuring Summary
 
-This document summarizes the changes made to align the ai-coding-skills project with the [Agent Skills](https://agentskills.io) standard.
+This document summarizes the changes made to align the platonic-coding-skills project with the [Agent Skills](https://agentskills.io) standard.
 
 ## Date
 2026-01-28

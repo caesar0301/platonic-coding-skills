@@ -38,7 +38,7 @@ The skill provides 8 operations organized into three categories:
 **Purpose**: Create a new specification system with all foundation files.
 
 **Inputs**:
-- **Project name**: The name of your project (e.g., "MyProject", "AI-Coding-Skills")
+- **Project name**: The name of your project (e.g., "MyProject", "PlatonicCodingSkills")
 - **Specs directory**: Path where specs will be created (e.g., "./specs", "./docs/specs")
 
 **Process**:
