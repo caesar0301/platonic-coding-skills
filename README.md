@@ -9,8 +9,6 @@ A professional collection of [Agent Skills](https://agentskills.io) for AI-power
 
 This repository provides production-ready Agent Skills that enhance AI agent capabilities for development workflows. All skills follow the [Agent Skills specification](https://agentskills.io/specification) for maximum compatibility across AI coding agents.
 
-**Agent Skills** are a simple, open format for giving agents new capabilities and expertise. Write once, use everywhere.
-
 ## Available Skills
 
 ### 📋 platonic-coding-specs
@@ -47,99 +45,48 @@ Review code implementation against specifications for consistency validation.
 
 ## Installation
 
-### Quick Install via Marketplace
+### Method 1: Claude Code CLI Marketplace (Easiest)
 
-If your AI agent supports marketplace installation:
+If using Claude Code CLI with marketplace support:
 
 ```bash
-# For Claude Code CLI
-/plugin marketplace add caesar0301/ai-coding-skills
-/plugin
+# Add the skills marketplace
+claude-code marketplace add caesar0301/ai-coding-skills
 ```
 
-### Manual Installation
+### Method 2: Clone to Skills Directory (Recommended for Most)
 
-Clone this repository to your skills directory:
+Clone this repository to your agent's skills directory:
 
 ```bash
-# Clone to your agent's skills directory
+# For Claude Code / Cursor / Windsurf
 git clone https://github.com/caesar0301/ai-coding-skills.git ~/.claude/skills/ai-coding-skills
 
-# Or use a specific skills directory
-git clone https://github.com/caesar0301/ai-coding-skills.git /path/to/skills/
+# Or use a custom skills directory
+git clone https://github.com/caesar0301/ai-coding-skills.git /path/to/your/skills/ai-coding-skills
 ```
 
-## Usage
+### Verify Installation
 
-### Using with AI Coding Agents
-
-Once installed, skills are automatically discovered by compatible agents. Simply reference them in your conversations:
-
-**Method 1: Natural Language (Recommended)**
-
-```
-Use the platonic-coding-specs skill to initialize specs 
-for project "MyProject" in ./specs
+**For Claude Code CLI users:**
+```bash
+claude-code
+> /skills list
+# You should see: platonic-coding-specs, review-code-per-specs
 ```
 
-```
-Use the review-code skill to review my changes in the 
-current branch, focusing on security issues
-```
+**For manual installation users:**
+```bash
+# List skills directory
+ls ~/.claude/skills/
 
-**Method 2: Explicit Reference**
-
-```
-Read the platonic-coding-specs skill's references/init-specs.md
-and apply it with project name "MyProject" and specs directory "./specs"
+# You should see:
+# - platonic-coding-specs/
+# - review-code-per-specs/
 ```
 
-**Method 3: Step-by-Step**
-
-```
-1. Use review-code skill to audit src/api/UserService.ts
-2. Generate a report with prioritized findings
-3. Show me the critical and high-priority issues
-```
-
-### Supported AI Agents
-
-These skills work with any agent supporting the [Agent Skills format](https://agentskills.io):
-
-- ✅ Claude Code CLI
-- ✅ Cursor
-- ✅ Windsurf
-- ✅ Other Agent Skills-compatible agents
-
-## Project Structure
-
-```
-ai-coding-skills/
-├── .claude-plugin/
-│   └── marketplace.json            # Marketplace configuration
-├── skills/
-│   ├── platonic-coding-specs/      # RFC specification management
-│   │   ├── SKILL.md                # Skill definition (Agent Skills format)
-│   │   ├── README.md               # User documentation
-│   │   ├── references/             # Reference documentation
-│   │   │   ├── REFERENCE.md        # Complete guide
-│   │   │   └── *.md                # Operation references
-│   │   └── assets/                 # Templates and resources
-│   │       └── *.template          # RFC templates
-│   └── review-code-per-specs/      # Spec-to-code validation
-│       ├── SKILL.md                # Skill definition (Agent Skills format)
-│       ├── README.md               # User documentation
-│       ├── references/             # Review procedures
-│       │   └── REFERENCE.md        # Complete review guide
-│       └── assets/                 # Review templates
-├── LICENSE
-└── README.md                       # This file
-```
-
-Each skill follows the [Agent Skills standard](https://agentskills.io/specification):
-- `SKILL.md` - Required skill definition with metadata and instructions
-- `references/` - Additional documentation loaded on demand
-- `assets/` - Templates, resources, and static files
+**For all users:**  
+Ask your AI agent: "List available skills" or "What skills do you have?"
 
 ## Examples
 
@@ -181,56 +128,57 @@ all RFCs in ./specs/ and the implementation in ./src/
 
 **Result:** Bi-directional analysis showing unimplemented specs and undocumented code features.
 
-## Contributing
+## Practical Workflows
 
-Contributions are welcome! To add or improve skills:
+### Workflow 1: New Feature Development
 
-1. Follow the [Agent Skills specification](https://agentskills.io/specification)
-2. Include comprehensive documentation
-3. Provide examples and usage guides
-4. Test with multiple AI agents
-5. Submit a pull request
+```
+# Step 1: Create specification
+Use platonic-coding-specs to create a new RFC for the user authentication feature
 
-## Best Practices
+# Step 2: Implement the feature
+[You implement the code]
 
-### For Skill Users
+# Step 3: Validate implementation
+Use review-code-per-specs to verify src/auth/ implements 
+specs/rfc-001-auth.md completely
 
-1. **Read skill documentation** before first use
-2. **Start with examples** to understand capabilities
-3. **Customize for your project** - adapt templates and references
-4. **Provide context** - give agents necessary information
-5. **Iterate and refine** - use skills regularly for best results
+# Step 4: Update documentation
+Use platonic-coding-specs to update the RFC history and index
+```
 
-### For Skill Authors
+### Workflow 2: Code Review Before Merge
 
-1. **Follow the Agent Skills spec** for compatibility
-2. **Keep SKILL.md concise** (< 500 lines recommended)
-3. **Use progressive disclosure** - move details to references/
-4. **Provide clear examples** in documentation
-5. **Test across agents** - ensure broad compatibility
+```
+# Review both specs and code
+1. Use platonic-coding-specs to validate specs consistency
+2. Use review-code-per-specs to check PR changes against all relevant RFCs
+3. Generate compliance report
+4. Fix any discrepancies before merge
+```
 
-## About Agent Skills
+### Workflow 3: Legacy Code Documentation
 
-This project follows the [Agent Skills](https://agentskills.io) format, an open standard maintained by [Anthropic](https://anthropic.com) for giving AI agents new capabilities.
+```
+# Document existing code
+1. Use review-code-per-specs to analyze src/ and identify undocumented features
+2. Use platonic-coding-specs to create RFCs for undocumented features
+3. Use review-code-per-specs to verify RFCs accurately describe the code
+```
 
-**Key Benefits:**
-- 📝 Simple format (just folders with SKILL.md files)
-- 🔄 Reusable across different AI agents
-- 📦 Easy to share and distribute
-- 🎯 Progressive disclosure for efficient context use
-- 🤝 Open standard, community-driven
+### Workflow 4: Continuous Compliance
 
-Learn more:
-- [Agent Skills Documentation](https://agentskills.io)
-- [Format Specification](https://agentskills.io/specification)
-- [Integration Guide](https://agentskills.io/integrate-skills)
+```
+# Regular maintenance
+Weekly:
+- Use platonic-coding-specs to refine specs (validate, update indices)
+- Use review-code-per-specs to check new commits against specs
 
-## Resources
-
-- **Documentation**: See individual skill README files
-- **Examples**: Check each skill's REFERENCE.md for detailed examples
-- **Issues**: [GitHub Issues](https://github.com/caesar0301/ai-coding-skills/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/caesar0301/ai-coding-skills/discussions)
+Before releases:
+- Use review-code-per-specs for comprehensive audit (Level 3)
+- Address all critical and high-priority gaps
+- Update specs for any intentional deviations
+```
 
 ## License
 
