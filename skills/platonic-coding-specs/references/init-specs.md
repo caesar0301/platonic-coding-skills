@@ -12,7 +12,7 @@ Initialize a new specs folder with project-specific RFC templates, replacing `{{
 ## Steps
 
 1. **Create specs directory** if it doesn't exist
-2. **Read template files** from `templates/` directory:
+2. **Read template files** from `assets/` directory:
    - `rfc-standard.md.template`
    - `rfc-history.md.template`
    - `rfc-index.md.template`
@@ -55,7 +55,7 @@ Check that:
 
 If project name is "MyProject" and specs directory is "./specs":
 
-1. Read `templates/rfc-standard.md.template`
+1. Read `assets/rfc-standard.md.template`
 2. Replace `{{PROJECT_NAME}}` → `MyProject`
 3. Replace `YYYY-MM-DD` → `2026-01-28` (today's date)
 4. Write to `./specs/rfc-standard.md`

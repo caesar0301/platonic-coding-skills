@@ -1,0 +1,266 @@
+# Project Restructuring Summary
+
+This document summarizes the changes made to align the ai-coding-skills project with the [Agent Skills](https://agentskills.io) standard.
+
+## Date
+2026-01-28
+
+## Changes Overview
+
+### 1. Restructured platonic-coding-specs Skill
+
+**Directory Changes:**
+- ✅ Renamed `prompts/` → `references/` (Agent Skills standard)
+- ✅ Renamed `templates/` → `assets/` (Agent Skills standard)
+
+**Files Updated:**
+- ✅ `SKILL.md` - Added metadata (version, author, category, license), improved structure
+- ✅ `README.md` - Complete rewrite with clearer documentation
+- ✅ `references/REFERENCE.md` - NEW: Comprehensive operation guide (418 lines)
+- ✅ `references/init-specs.md` - Updated paths (templates → assets)
+
+**Key Improvements:**
+- Follows Agent Skills specification format
+- Better organized with progressive disclosure
+- Comprehensive reference documentation
+- Clear metadata in frontmatter
+
+---
+
+### 2. Renamed and Refocused review-code Skill
+
+**Renamed:** `review-code` → `review-code-per-specs`
+
+**Focus Changed:**
+- ❌ WAS: General code quality, security, performance reviewer
+- ✅ NOW: Spec-to-code consistency validator
+
+**New Purpose:**
+- Validate code implements specifications correctly
+- Check feature completeness against requirements
+- Identify gaps (specs without code, code without specs)
+- Find discrepancies where implementation differs from specs
+- **Default behavior: Generate report WITHOUT modifying code**
+
+**Files Created:**
+- ✅ `SKILL.md` - Complete rewrite focusing on spec validation (197 lines)
+- ✅ `README.md` - Comprehensive documentation (289 lines)
+- ✅ `references/REFERENCE.md` - Detailed review procedures (1000+ lines)
+- ✅ `assets/review-checklist.md` - Review checklist template
+- ✅ `assets/pr-review-template.md` - PR review template
+
+**Key Features:**
+- 6-step review process (Understand → Checklist → Map → Review → Discrepancies → Report)
+- Three review levels (Basic, Detailed, Comprehensive)
+- Bi-directional analysis (spec→code and code→spec)
+- Report generation by default (no code modification unless requested)
+- Structured report format with prioritized findings
+
+---
+
+### 3. Updated Configuration Files
+
+**marketplace.json:**
+- ✅ Updated to include both skills with proper metadata
+- ✅ Added repository information
+- ✅ Changed review-code → review-code-per-specs
+- ✅ Updated skill categories and tags
+- ✅ Added compatibility section
+
+**Main README.md:**
+- ✅ Complete rewrite following Agent Skills format
+- ✅ Professional structure with badges
+- ✅ Clear skill descriptions
+- ✅ Updated examples
+- ✅ Added integration guidance
+- ✅ Better documentation links
+
+---
+
+## Skills Summary
+
+### Skill 1: platonic-coding-specs
+
+**Category:** Documentation  
+**Version:** 1.0.0  
+**Purpose:** Manage RFC-style specifications
+
+**Operations:**
+1. Initialize specs folder
+2. Refine specifications (comprehensive)
+3. Generate history
+4. Generate index
+5. Generate namings
+6. Validate consistency
+7. Check taxonomy
+8. Check standard compliance
+
+**File Structure:**
+```
+platonic-coding-specs/
+├── SKILL.md              # Agent Skills definition
+├── README.md             # User documentation
+├── references/           # Reference documentation
+│   ├── REFERENCE.md      # Complete guide
+│   └── *.md              # 8 operation references
+└── assets/               # Templates
+    └── *.template        # 5 RFC templates
+```
+
+---
+
+### Skill 2: review-code-per-specs
+
+**Category:** Validation  
+**Version:** 1.0.0  
+**Purpose:** Validate code against specifications
+
+**Review Process:**
+1. **Understand Specifications** - Read and analyze specs
+2. **Generate Functionality Checklist** - Extract testable requirements
+3. **Map Specs to Code** - Identify implementation locations
+4. **Review Implementation** - Verify each requirement
+5. **Identify Discrepancies** - Document inconsistencies
+6. **Generate Report** - Create actionable report (no code changes by default)
+
+**Review Levels:**
+- **Level 1: Basic Compliance** (5-10 min) - Major features only
+- **Level 2: Detailed Verification** (30-60 min) - All specified features
+- **Level 3: Comprehensive Audit** (2+ hours) - Deep analysis
+
+**File Structure:**
+```
+review-code-per-specs/
+├── SKILL.md              # Agent Skills definition
+├── README.md             # User documentation
+├── references/           # Review procedures
+│   └── REFERENCE.md      # Complete review guide
+└── assets/               # Templates
+    ├── review-checklist.md
+    └── pr-review-template.md
+```
+
+---
+
+## Agent Skills Standard Compliance
+
+Both skills now fully comply with [Agent Skills specification](https://agentskills.io/specification):
+
+✅ **SKILL.md format:**
+- Required YAML frontmatter (name, description)
+- Optional metadata (version, author, license, category)
+- Clear body content with instructions
+
+✅ **Directory structure:**
+- `SKILL.md` - Required skill definition
+- `references/` - Additional documentation (progressive disclosure)
+- `assets/` - Templates and resources
+
+✅ **Progressive disclosure:**
+1. Metadata (~100 tokens) - Loaded at startup
+2. SKILL.md body (< 500 lines) - Loaded when activated
+3. References (as needed) - Loaded on demand
+
+✅ **Best practices:**
+- Self-documenting
+- Portable (just files)
+- Extensible
+- Compatible with multiple AI agents
+
+---
+
+## Key Principles Applied
+
+### 1. Standards Compliance
+- Follows Agent Skills specification exactly
+- Uses standard directory structure
+- Proper YAML frontmatter
+
+### 2. Progressive Disclosure
+- Concise SKILL.md files
+- Detailed information in references/
+- Templates in assets/
+
+### 3. Clear Documentation
+- Comprehensive README files
+- Detailed REFERENCE.md guides
+- Practical examples
+
+### 4. Default: Report Only
+- review-code-per-specs generates reports by default
+- Never modifies code without explicit user request
+- Asks for permission before changes
+
+### 5. Practical Focus
+- Real-world use cases
+- Clear procedures
+- Actionable recommendations
+
+---
+
+## Migration Guide
+
+### For Existing Users
+
+**If you were using platonic-coding-specs:**
+- Update any references from `prompts/` to `references/`
+- Update any references from `templates/` to `assets/`
+- Otherwise, functionality is identical
+
+**If you were using review-code:**
+- Skill is now `review-code-per-specs`
+- Purpose has changed: now validates against specs (not general review)
+- For general code review, use other tools
+
+---
+
+## Files Changed
+
+### Modified:
+- `.claude-plugin/marketplace.json`
+- `README.md`
+- `skills/platonic-coding-specs/SKILL.md`
+- `skills/platonic-coding-specs/README.md`
+- `skills/platonic-coding-specs/references/init-specs.md`
+
+### Renamed (platonic-coding-specs):
+- `prompts/` → `references/`
+- `templates/` → `assets/`
+
+### Created:
+- `skills/platonic-coding-specs/references/REFERENCE.md`
+- `skills/review-code-per-specs/` (entire directory)
+- `skills/review-code-per-specs/SKILL.md`
+- `skills/review-code-per-specs/README.md`
+- `skills/review-code-per-specs/references/REFERENCE.md`
+- `skills/review-code-per-specs/assets/review-checklist.md`
+- `skills/review-code-per-specs/assets/pr-review-template.md`
+
+### Deleted:
+- `.claude-plugin/plugin.json` (obsolete)
+- `skills/review-code/` (replaced by review-code-per-specs)
+
+---
+
+## Next Steps
+
+1. **Review changes** - Verify all changes are correct
+2. **Test skills** - Try both skills with AI agents
+3. **Update documentation** - Add any project-specific notes
+4. **Commit changes** - Stage and commit when ready
+5. **Share** - Publish to marketplace or share with team
+
+---
+
+## Resources
+
+- [Agent Skills Specification](https://agentskills.io/specification)
+- [Agent Skills Documentation](https://agentskills.io)
+- [Integration Guide](https://agentskills.io/integrate-skills)
+- [Example Skills](https://github.com/anthropics/skills)
+
+---
+
+**Restructuring completed:** 2026-01-28  
+**Standards followed:** Agent Skills 1.0  
+**License:** MIT

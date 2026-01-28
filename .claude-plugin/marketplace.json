@@ -1,0 +1,48 @@
+{
+  "name": "ai-coding-skills",
+  "owner": {
+    "name": "Xiaming Chen",
+    "url": "https://xiaming.site/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/caesar0301/ai-coding-skills"
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "description": "Professional Agent Skills collection for AI-powered development workflows. Includes comprehensive skills for RFC specification management and code review, following the Agent Skills standard from agentskills.io",
+    "keywords": [
+      "agent-skills",
+      "code-review",
+      "specifications",
+      "rfc",
+      "documentation",
+      "quality",
+      "ai-coding",
+      "development-tools"
+    ],
+    "license": "MIT"
+  },
+  "skills": [
+    {
+      "name": "platonic-coding-specs",
+      "path": "skills/platonic-coding-specs",
+      "description": "Manage RFC-style specifications with templates, validation, and dynamic generation of history, index, and namings files",
+      "version": "1.0.0",
+      "category": "documentation",
+      "tags": ["rfc", "specifications", "documentation", "validation", "taxonomy"]
+    },
+    {
+      "name": "review-code-per-specs",
+      "path": "skills/review-code-per-specs",
+      "description": "Review code implementation against specifications to ensure consistency and completeness. Validates spec-to-code alignment and generates compliance reports",
+      "version": "1.0.0",
+      "category": "validation",
+      "tags": ["spec-compliance", "validation", "consistency-check", "requirements", "gap-analysis"]
+    }
+  ],
+  "compatibility": {
+    "agents": ["claude-code", "cursor", "windsurf"],
+    "format": "agent-skills-1.0"
+  }
+}
