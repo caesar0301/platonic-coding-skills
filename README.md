@@ -1,15 +1,15 @@
 # Platonic Coding Skills
 
-A professional collection of [Agent Skills](https://agentskills.io) for AI-powered development workflows.
+A professional collection of [Agent Skills](https://agentskills.io) for AI-powered Platonic Coding workflow.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Agent Skills Format](https://img.shields.io/badge/format-Agent%20Skills%201.0-blue)](https://agentskills.io)
 
 ## Overview
 
-**Platonic Coding** is a coding style designed for complex projects and cross-team collaboration with AI agents. Instead of relying on prompts, vibes, or implicit assumptions, it treats specifications as abstract laws that define what can exist, what can change, and what must always hold. Agents operate inside a shared, closed spec world where meaning is explicit, violations are detectable, and evolution is traceable over time—making large systems reproducible, reviewable, and stable across teams, agents, and long development cycles.
+**Platonic Coding** is a coding style designed for complex projects and cross-team collaboration with AI agents. Instead of relying on prompts, vibes, or implicit assumptions, it treats specifications as abstract laws that define what can exist, what can change, and what must always hold. Agents operate inside a shared, closed spec world where meaning is explicit, violations are detectable, and evolution is traceable over time, making large systems reproducible, reviewable, and stable across teams, agents, and long development cycles.
 
-This repository provides production-ready Agent Skills that enhance AI agent capabilities for Platonic Coding workflows. All skills follow the [Agent Skills specification](https://agentskills.io/specification) for maximum compatibility across AI coding agents.
+This repository provides production-ready Agent Skills that enhance Platonic Coding. All skills follow the [Agent Skills specification](https://agentskills.io/specification) for maximum compatibility across AI coding agents.
 
 ## Available Skills
 
