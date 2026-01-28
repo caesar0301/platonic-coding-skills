@@ -1,0 +1,55 @@
+# RFC Index: {{PROJECT_NAME}} RFC Documents
+
+**Status**: Living Document
+**Authors**: {{PROJECT_NAME}} Core Team
+**Created**: YYYY-MM-DD
+**Last Updated**: YYYY-MM-DD
+
+---
+
+## 1. Overview
+
+This document provides an index of all RFCs in the {{PROJECT_NAME}} project, with links to their current versions and status.
+
+---
+
+## 2. Active RFCs
+
+<!-- This table is generated dynamically by generate_index.py -->
+
+| RFC | Title | Status | Created | Last Updated | Version |
+|-----|-------|--------|---------|--------------|---------|
+
+---
+
+## 3. Supporting Documents
+
+| Document | Title | Status | Purpose |
+|----------|-------|--------|---------|
+| [rfc-standard.md](rfc-standard.md) | RFC Specifications and Management Guide | Frozen | Defines RFC process, templates, and conventions |
+| [rfc-namings.md](rfc-namings.md) | Terminology Standardization Reference | Frozen | Canonical terminology for the project |
+| [rfc-history.md](rfc-history.md) | RFC Change History | Living | Records all RFC lifecycle events |
+| [rfc-index.md](rfc-index.md) | RFC Index | Living | Index of all RFC documents |
+
+---
+
+## 4. RFC Status Legend
+
+| Status | Description |
+|--------|-------------|
+| Draft | Work in progress, subject to change |
+| Review | Ready for review and feedback |
+| Frozen | Stable, versioned, changes require new version |
+| Deprecated | No longer active, kept for historical reference |
+
+---
+
+## 5. Quick Links
+
+<!-- Quick links are generated dynamically by generate_index.py -->
+
+---
+
+## 6. Related Documents
+
+<!-- Related documents section can be customized per project -->

@@ -1,0 +1,59 @@
+# RFC-Namings: {{PROJECT_NAME}} Terminology Standardization Reference
+
+**Status**: Frozen
+**Authors**: {{PROJECT_NAME}} Core Team
+**Created**: YYYY-MM-DD
+**Last Updated**: YYYY-MM-DD
+**Depends on**: —
+**Supersedes**: —
+
+---
+
+## 1. Overview
+
+This document defines the **canonical terminology** used in the {{PROJECT_NAME}} project. All RFCs, design documents, and implementation code **SHOULD** use the terms defined here to ensure semantic consistency across documents and modules.
+
+---
+
+## 2. Terminology Index
+
+<!-- This section is generated dynamically by generate_namings.py -->
+
+| Term | Source RFC | Brief Description |
+|------|-----------|-------------------|
+
+---
+
+## 3. Core Concept Terms
+
+<!-- Terms are organized by generate_namings.py based on RFC content -->
+
+---
+
+## 8. Usage Guidelines
+
+### 8.1 Mandatory Rules (MUST)
+
+1. RFCs **MUST** use the canonical terms defined in this document.
+2. On first occurrence, terms **SHOULD** be followed by their definitions.
+3. Names of types and variables in code **SHOULD** align with the English terms.
+
+### 8.2 Recommended Rules (SHOULD)
+
+1. Terminology extensions **SHOULD** be made by updating this document.
+2. New terms introduced by RFCs **SHOULD** be registered here.
+3. Changes to term definitions **SHOULD** be recorded in [rfc-history.md](rfc-history.md).
+
+### 8.3 Terminology Update Workflow
+
+1. Define new terms in related RFCs.
+2. Update this document to add terminology entries.
+3. Record the change in rfc-history.md.
+4. Notify relevant team members.
+
+---
+
+## 9. Related Documents
+
+- [rfc-standard.md](rfc-standard.md) - RFC Specifications and Management Guide
+- [rfc-history.md](rfc-history.md) - RFC Change History
