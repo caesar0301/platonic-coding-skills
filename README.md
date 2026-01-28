@@ -17,7 +17,7 @@ This repository provides production-ready Agent Skills that enhance Platonic Cod
 
 ### 🚀 Grism: Hypergraph Database in 3 Days
 
-We built [**Grism**](https://github.com/mirasoth/Grism) — an AI-native, neurosymbolic hypergraph database — from concept to working prototype in just **three days** using the Platonic Coding method.
+We built [**Grism**](https://github.com/mirasoth/Grism), an AI-native, neurosymbolic hypergraph database, from concept to *working prototype* in just **three days** using the Platonic Coding method.
 
 Grism features:
 - **Hypergraph-first architecture** with n-ary relations as the core primitive
