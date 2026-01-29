@@ -161,7 +161,7 @@
 ---
 
 **Review Completed**: [YYYY-MM-DD HH:MM]  
-**Tool**: review-code-per-specs skill
+**Tool**: platonic-code-review skill
 
 ## Additional Context
 

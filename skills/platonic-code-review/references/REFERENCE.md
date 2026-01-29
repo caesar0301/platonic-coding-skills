@@ -1,4 +1,4 @@
-# Review Code Per Specs - Reference Guide
+# Platonic Code Review - Reference Guide
 
 Complete guide for validating code implementation against specifications.
 
@@ -339,7 +339,7 @@ Quick reference for thorough review:
 
 **Workflow**:
 1. Use `platonic-coding-specs` to maintain RFCs
-2. Use `review-code-per-specs` to validate code against RFCs
+2. Use `platonic-code-review` to validate code against RFCs
 3. Review report identifies gaps/inconsistencies
 4. User decides: update specs or fix code
 5. Use `platonic-coding-specs` to update spec history
@@ -347,7 +347,7 @@ Quick reference for thorough review:
 **Example**:
 ```
 1. Refine specs with platonic-coding-specs
-2. Review code: "Use review-code-per-specs to validate 
+2. Review code: "Use platonic-code-review to validate 
    src/ against specs/"
 3. Get report with findings
 4. Fix code or update specs as appropriate

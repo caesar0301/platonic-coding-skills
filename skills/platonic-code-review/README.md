@@ -1,4 +1,4 @@
-# Review Code Per Specs
+# Platonic Code Review
 
 An Agent Skill for validating code implementation against specifications to ensure consistency and completeness.
 
@@ -26,21 +26,21 @@ This is NOT a general code quality or security reviewer. It specifically focuses
 ### Review Implementation Against Specs
 
 ```
-Use review-code-per-specs to verify that src/auth/ correctly 
+Use platonic-code-review to verify that src/auth/ correctly 
 implements all requirements from specs/rfc-001-authentication.md
 ```
 
 ### Check Feature Completeness
 
 ```
-Use review-code-per-specs to check if all features specified 
+Use platonic-code-review to check if all features specified 
 in specs/rfc-005-payment-system.md are implemented in src/payments/
 ```
 
 ### Gap Analysis
 
 ```
-Use review-code-per-specs to identify gaps between all RFCs 
+Use platonic-code-review to identify gaps between all RFCs 
 in ./specs/ and the implementation in ./src/
 ```
 
@@ -246,7 +246,7 @@ To proceed:
 
 **User Request:**
 ```
-Use review-code-per-specs to review src/auth/ against 
+Use platonic-code-review to review src/auth/ against 
 specs/rfc-001-authentication.md
 ```
 
@@ -260,7 +260,7 @@ specs/rfc-001-authentication.md
 
 **User Request:**
 ```
-Use review-code-per-specs to verify that src/api/payments/ 
+Use platonic-code-review to verify that src/api/payments/ 
 fully implements all requirements in specs/rfc-005-payments.md
 ```
 
@@ -274,7 +274,7 @@ fully implements all requirements in specs/rfc-005-payments.md
 
 **User Request:**
 ```
-Use review-code-per-specs to audit the entire codebase against 
+Use platonic-code-review to audit the entire codebase against 
 all RFCs in ./specs/. Generate a comprehensive report.
 ```
 
@@ -288,7 +288,7 @@ all RFCs in ./specs/. Generate a comprehensive report.
 
 **User Request:**
 ```
-Use review-code-per-specs to perform bi-directional analysis:
+Use platonic-code-review to perform bi-directional analysis:
 1. Check what specs are not implemented
 2. Check what code is not specified
 ```
@@ -326,13 +326,13 @@ Use review-code-per-specs to perform bi-directional analysis:
 **platonic-coding-specs**:
 ```
 1. Use platonic-coding-specs to maintain RFC specifications
-2. Use review-code-per-specs to validate code against those RFCs
+2. Use platonic-code-review to validate code against those RFCs
 3. Use platonic-coding-specs to update history with review findings
 ```
 
 **Testing Skills**:
 ```
-1. Use review-code-per-specs to identify untested requirements
+1. Use platonic-code-review to identify untested requirements
 2. Generate test cases for missing coverage
 3. Validate test suite completeness
 ```
@@ -365,14 +365,14 @@ Use review-code-per-specs to perform bi-directional analysis:
 ## File Structure
 
 ```
-review-code-per-specs/
+platonic-code-review/
 ├── SKILL.md              # Agent Skills format definition
 ├── README.md             # This file
 ├── references/           # Detailed procedures
 │   └── REFERENCE.md      # Complete review guide
 └── assets/               # Templates and checklists
     ├── review-checklist.md
-    └── report-template.md
+    └── pr-review-template.md
 ```
 
 ## Troubleshooting

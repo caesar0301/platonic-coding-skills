@@ -29,7 +29,7 @@ This document summarizes the changes made to align the platonic-coding-skills pr
 
 ### 2. Renamed and Refocused review-code Skill
 
-**Renamed:** `review-code` → `review-code-per-specs`
+**Renamed:** `review-code` → `platonic-code-review`
 
 **Focus Changed:**
 - ❌ WAS: General code quality, security, performance reviewer
@@ -63,7 +63,7 @@ This document summarizes the changes made to align the platonic-coding-skills pr
 **marketplace.json:**
 - ✅ Updated to include both skills with proper metadata
 - ✅ Added repository information
-- ✅ Changed review-code → review-code-per-specs
+- ✅ Changed review-code → platonic-code-review
 - ✅ Updated skill categories and tags
 - ✅ Added compatibility section
 
@@ -109,7 +109,7 @@ platonic-coding-specs/
 
 ---
 
-### Skill 2: review-code-per-specs
+### Skill 2: platonic-code-review
 
 **Category:** Validation  
 **Version:** 1.0.0  
@@ -130,7 +130,7 @@ platonic-coding-specs/
 
 **File Structure:**
 ```
-review-code-per-specs/
+platonic-code-review/
 ├── SKILL.md              # Agent Skills definition
 ├── README.md             # User documentation
 ├── references/           # Review procedures
@@ -187,7 +187,7 @@ Both skills now fully comply with [Agent Skills specification](https://agentskil
 - Practical examples
 
 ### 4. Default: Report Only
-- review-code-per-specs generates reports by default
+- platonic-code-review generates reports by default
 - Never modifies code without explicit user request
 - Asks for permission before changes
 
@@ -208,7 +208,7 @@ Both skills now fully comply with [Agent Skills specification](https://agentskil
 - Otherwise, functionality is identical
 
 **If you were using review-code:**
-- Skill is now `review-code-per-specs`
+- Skill is now `platonic-code-review`
 - Purpose has changed: now validates against specs (not general review)
 - For general code review, use other tools
 
@@ -229,16 +229,16 @@ Both skills now fully comply with [Agent Skills specification](https://agentskil
 
 ### Created:
 - `skills/platonic-coding-specs/references/REFERENCE.md`
-- `skills/review-code-per-specs/` (entire directory)
-- `skills/review-code-per-specs/SKILL.md`
-- `skills/review-code-per-specs/README.md`
-- `skills/review-code-per-specs/references/REFERENCE.md`
-- `skills/review-code-per-specs/assets/review-checklist.md`
-- `skills/review-code-per-specs/assets/pr-review-template.md`
+- `skills/platonic-code-review/` (entire directory)
+- `skills/platonic-code-review/SKILL.md`
+- `skills/platonic-code-review/README.md`
+- `skills/platonic-code-review/references/REFERENCE.md`
+- `skills/platonic-code-review/assets/review-checklist.md`
+- `skills/platonic-code-review/assets/pr-review-template.md`
 
 ### Deleted:
 - `.claude-plugin/plugin.json` (obsolete)
-- `skills/review-code/` (replaced by review-code-per-specs)
+- `skills/review-code/` (replaced by platonic-code-review)
 
 ---
 

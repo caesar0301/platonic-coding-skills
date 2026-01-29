@@ -1,5 +1,5 @@
 ---
-name: review-code-per-specs
+name: platonic-code-review
 description: Review code implementation against specifications to ensure consistency and completeness. Use when validating that code correctly implements RFC specs, requirements documents, or design specifications. Generates reports by default without modifying code.
 license: MIT
 metadata:
@@ -8,7 +8,7 @@ metadata:
   category: "validation"
 ---
 
-# Review Code Per Specs
+# Platonic Code Review
 
 Validate that code implementation is consistent with project specifications and requirements.
 
@@ -182,7 +182,7 @@ Reviews generate structured reports:
 ### Example 1: Basic Spec Review
 
 ```
-Use review-code-per-specs to review the implementation of 
+Use platonic-code-review to review the implementation of 
 rfc-001-user-authentication.md in the src/auth/ directory.
 Generate a report showing what's implemented and what's missing.
 ```
@@ -190,7 +190,7 @@ Generate a report showing what's implemented and what's missing.
 ### Example 2: Comprehensive Module Review
 
 ```
-Use review-code-per-specs to conduct a comprehensive review 
+Use platonic-code-review to conduct a comprehensive review 
 of the entire API implementation against all RFCs in ./specs/.
 Focus on API endpoints, data structures, and error handling.
 ```
@@ -198,7 +198,7 @@ Focus on API endpoints, data structures, and error handling.
 ### Example 3: Feature Completeness Check
 
 ```
-Use review-code-per-specs to verify that all features 
+Use platonic-code-review to verify that all features 
 specified in rfc-005-payment-processing.md are fully 
 implemented in src/payments/. Generate a detailed checklist.
 ```
@@ -206,7 +206,7 @@ implemented in src/payments/. Generate a detailed checklist.
 ### Example 4: Gap Analysis
 
 ```
-Use review-code-per-specs to perform a gap analysis between 
+Use platonic-code-review to perform a gap analysis between 
 ./specs/ and ./src/, identifying specifications without 
 implementations and implementations without specifications.
 ```

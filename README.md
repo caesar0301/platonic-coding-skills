@@ -48,7 +48,7 @@ Manage RFC-style specifications with AI-driven operations.
 
 ---
 
-### ✅ review-code-per-specs
+### ✅ platonic-code-review
 
 Review code implementation against specifications for consistency validation.
 
@@ -61,7 +61,7 @@ Review code implementation against specifications for consistency validation.
 
 **Use when:** Validating implementation against specs, checking requirements compliance, ensuring spec-to-code consistency
 
-[**→ Full Documentation**](skills/review-code-per-specs/README.md)
+[**→ Full Documentation**](skills/platonic-code-review/README.md)
 
 ## Installation
 
@@ -103,7 +103,7 @@ specification system in ./docs/specs/
 ### Example 2: Validate Code Against Specs
 
 ```
-Use the review-code-per-specs skill to verify that src/auth/ 
+Use the platonic-code-review skill to verify that src/auth/ 
 correctly implements all requirements from specs/rfc-001-authentication.md
 ```
 
@@ -122,7 +122,7 @@ regenerating all index files.
 ### Example 4: Gap Analysis
 
 ```
-Use the review-code-per-specs skill to identify gaps between 
+Use the platonic-code-review skill to identify gaps between 
 all RFCs in ./specs/ and the implementation in ./src/
 ```
 
@@ -140,7 +140,7 @@ Use platonic-coding-specs to create a new RFC for the user authentication featur
 [You implement the code]
 
 # Step 3: Validate implementation
-Use review-code-per-specs to verify src/auth/ implements 
+Use platonic-code-review to verify src/auth/ implements 
 specs/rfc-001-auth.md completely
 
 # Step 4: Update documentation
@@ -152,7 +152,7 @@ Use platonic-coding-specs to update the RFC history and index
 ```
 # Review both specs and code
 1. Use platonic-coding-specs to validate specs consistency
-2. Use review-code-per-specs to check PR changes against all relevant RFCs
+2. Use platonic-code-review to check PR changes against all relevant RFCs
 3. Generate compliance report
 4. Fix any discrepancies before merge
 ```
@@ -161,9 +161,9 @@ Use platonic-coding-specs to update the RFC history and index
 
 ```
 # Document existing code
-1. Use review-code-per-specs to analyze src/ and identify undocumented features
+1. Use platonic-code-review to analyze src/ and identify undocumented features
 2. Use platonic-coding-specs to create RFCs for undocumented features
-3. Use review-code-per-specs to verify RFCs accurately describe the code
+3. Use platonic-code-review to verify RFCs accurately describe the code
 ```
 
 ### Workflow 4: Continuous Compliance
@@ -172,10 +172,10 @@ Use platonic-coding-specs to update the RFC history and index
 # Regular maintenance
 Weekly:
 - Use platonic-coding-specs to refine specs (validate, update indices)
-- Use review-code-per-specs to check new commits against specs
+- Use platonic-code-review to check new commits against specs
 
 Before releases:
-- Use review-code-per-specs for comprehensive audit (Level 3)
+- Use platonic-code-review for comprehensive audit (Level 3)
 - Address all critical and high-priority gaps
 - Update specs for any intentional deviations
 ```
