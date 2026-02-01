@@ -13,8 +13,6 @@ A professional collection of [Agent Skills](https://agentskills.io) for AI-power
 
 See a full description in [PLATONIC_CODING_MANIFESTO.md](https://github.com/caesar0301/platonic-coding-skills/blob/main/PLATONIC_CODING_MANIFESTO.md).
 
-This repository provides production-ready Agent Skills that enhance Platonic Coding. All skills follow the [Agent Skills specification](https://agentskills.io/specification) for maximum compatibility across AI coding agents.
-
 ## In Practice
 
 ### 🚀 Grism: Hypergraph Database in 3 Days
@@ -32,6 +30,8 @@ By defining the system's form through RFCs before writing code, agents operated 
 *This demonstrates that Platonic Coding doesn't slow you down, it accelerates complex system development by eliminating ambiguity and drift.*
 
 ## Available Skills
+
+This repository provides production-ready agent skills that enhance Platonic Coding. All skills follow the [Agent Skills specification](https://agentskills.io/specification) for maximum compatibility across AI coding agents.
 
 ### 📋 platonic-code-specs
 
