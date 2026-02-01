@@ -4,7 +4,7 @@ description: Review code implementation against specifications to ensure consist
 license: MIT
 metadata:
   version: "1.0.0"
-  author: "caesar0301"
+  author: "Xiaming Chen"
   category: "validation"
 ---
 

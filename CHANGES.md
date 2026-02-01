@@ -3,6 +3,49 @@
 This document summarizes the changes made to align the platonic-coding-skills project with the [Agent Skills](https://agentskills.io) standard.
 
 ## Date
+2026-02-01
+
+## New Skill: platonic-impl-guide (2026-02-01)
+
+**Added:** `platonic-impl-guide` skill for creating implementation guides from RFC specifications.
+
+**Purpose:**
+- Translate RFC specifications into concrete, implementation-ready designs
+- Create detailed technical architecture for features
+- Document language-specific and framework-specific implementation decisions
+- Bridge the gap between abstract specs and concrete code
+
+**Operations:**
+1. **Create Guide** – Create new implementation guide from RFC
+2. **Validate Guide** – Check guide against RFC for contradictions
+3. **Update Guide** – Update guide when RFC changes
+
+**File Structure:**
+```
+platonic-impl-guide/
+├── SKILL.md              # Agent Skills definition
+├── references/           # Operation guides
+│   ├── REFERENCE.md
+│   ├── create-guide.md
+│   ├── update-guide.md
+│   └── validate-guide.md
+└── assets/
+    └── impl-guide-template.md
+```
+
+**Key Features:**
+- Spec-compliant: guides MUST NOT contradict RFCs
+- Language-aware and framework-aware
+- Project-specific alignment with existing architecture
+- Traceability from implementation decisions back to specs
+
+**Also updated:**
+- `README.md` – Added platonic-impl-guide to Available Skills, Example 5, and Workflow 1 (optional step)
+- `.claude-plugin/marketplace.json` – Registered platonic-impl-guide skill
+
+---
+
+## Date
 2026-01-28
 
 ## Changes Overview

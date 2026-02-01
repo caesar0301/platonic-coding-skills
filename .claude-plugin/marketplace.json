@@ -10,12 +10,13 @@
   },
   "metadata": {
     "version": "1.0.0",
-    "description": "Professional Agent Skills collection for AI-powered development workflows. Includes comprehensive skills for RFC specification management and code review, following the Agent Skills standard from agentskills.io",
+    "description": "Professional Agent Skills collection for AI-powered development workflows. Includes comprehensive skills for RFC specification management, implementation guides, and code review, following the Agent Skills standard from agentskills.io",
     "keywords": [
       "agent-skills",
       "code-review",
       "specifications",
       "rfc",
+      "implementation-guide",
       "documentation",
       "quality",
       "ai-coding",
@@ -39,6 +40,14 @@
       "version": "1.0.0",
       "category": "validation",
       "tags": ["spec-compliance", "validation", "consistency-check", "requirements", "gap-analysis"]
+    },
+    {
+      "name": "platonic-impl-guide",
+      "path": "skills/platonic-impl-guide",
+      "description": "Create implementation guides that translate RFC specifications into concrete, project-specific technical designs. Language-aware and framework-aware",
+      "version": "1.0.0",
+      "category": "implementation",
+      "tags": ["implementation-guide", "technical-design", "architecture", "rfc-implementation", "module-design"]
     }
   ],
   "compatibility": {

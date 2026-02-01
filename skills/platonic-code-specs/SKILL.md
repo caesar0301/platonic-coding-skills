@@ -4,7 +4,7 @@ description: Manage RFC-style specifications with templates, validation, and dyn
 license: MIT
 metadata:
   version: "1.0.0"
-  author: "caesar0301"
+  author: "Xiaming Chen"
   category: "documentation"
 ---
 

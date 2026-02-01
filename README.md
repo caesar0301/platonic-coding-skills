@@ -46,7 +46,7 @@ Manage RFC-style specifications with AI-driven operations.
 
 **Use when:** Managing technical specifications, RFCs, documentation standards, terminology systems
 
-[**→ Full Documentation**](skills/platonic-code-specs/README.md)
+[**→ Full Documentation**](skills/platonic-code-specs/SKILL.md)
 
 ---
 
@@ -63,7 +63,23 @@ Review code implementation against specifications for consistency validation.
 
 **Use when:** Validating implementation against specs, checking requirements compliance, ensuring spec-to-code consistency
 
-[**→ Full Documentation**](skills/platonic-code-review/README.md)
+[**→ Full Documentation**](skills/platonic-code-review/SKILL.md)
+
+---
+
+### 📐 platonic-impl-guide
+
+Create concrete, project-specific implementation designs from RFC specifications.
+
+**Capabilities:**
+- Create implementation guides that translate RFC specs into implementation-ready designs
+- Validate guides against RFCs for contradictions
+- Update guides when RFCs change
+- Language-aware and framework-aware technical architecture
+
+**Use when:** Planning implementation of RFCs, creating detailed technical designs, documenting implementation architecture
+
+[**→ Full Documentation**](skills/platonic-impl-guide/SKILL.md)
 
 ## Installation
 
@@ -130,6 +146,16 @@ all RFCs in ./specs/ and the implementation in ./src/
 
 **Result:** Bi-directional analysis showing unimplemented specs and undocumented code features.
 
+### Example 5: Create Implementation Guide
+
+```
+Use platonic-impl-guide to create an implementation guide for 
+RFC-0042 (Message Queue Protocol) targeting the acme-queue crate.
+Use Rust with async/await patterns.
+```
+
+**Result:** Concrete implementation guide with module structure, types, interfaces, and implementation details that align with the RFC.
+
 ## Practical Workflows
 
 ### Workflow 1: New Feature Development
@@ -138,14 +164,17 @@ all RFCs in ./specs/ and the implementation in ./src/
 # Step 1: Create specification
 Use platonic-code-specs to create a new RFC for the user authentication feature
 
-# Step 2: Implement the feature
+# Step 2 (optional): Create implementation guide
+Use platonic-impl-guide to create a technical design from the RFC
+
+# Step 3: Implement the feature
 [You implement the code]
 
-# Step 3: Validate implementation
+# Step 4: Validate implementation
 Use platonic-code-review to verify src/auth/ implements 
 specs/rfc-001-auth.md completely
 
-# Step 4: Update documentation
+# Step 5: Update documentation
 Use platonic-code-specs to update the RFC history and index
 ```
 
