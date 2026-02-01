@@ -108,16 +108,73 @@ git clone https://github.com/caesar0301/platonic-coding-skills.git ~/.claude/ski
 
 ## General Workflow
 
-Platonic Coding follows a four-phase flow: **design specs → implementation guide → code → review**. Each phase uses one or more of the available skills.
+Platonic Coding follows a **five-phase, closed-world workflow**. Meaning is progressively *constrained*, *materialized*, and *verified* as the system moves from abstract intent to concrete code.
 
-| Phase | What you do | Skill(s) |
-|-------|-------------|----------|
-| **1. Create design specs** | Define requirements and architecture in RFCs. | platonic-code-specs |
-| **2. Create implementation guide** | Turn RFCs into concrete, language- and framework-specific technical designs. | platonic-impl-guide |
-| **3. AI agent writes code** | Implement the feature using the implementation guide (and RFCs) as the source of truth. | — |
-| **4. Review code against spec** | Check that the implementation matches specs and the guide; fix gaps. | platonic-code-review |
+```
 
-This keeps meaning explicit, violations detectable, and evolution traceable. The **Examples** and **Practical Workflows** below show how to apply this flow with the available skills.
+┌──────────────────────────────────────────────────────────────┐
+│ Phase 0: Conceptual Design & Requirements Elicitation        │
+│                                                              │
+│  • Clarify problem space, goals, constraints, and invariants │
+│  • Explore domain knowledge and prior art                    │
+│  • Identify core abstractions and system boundaries          │
+│  • Resolve ambiguity before formalization                    │
+│                                                              │
+│  Output: Shared mental model, requirement notes, concepts    │
+│  Tooling: AI with strong logic + broad knowledge (human-led) │
+└───────────────┬──────────────────────────────────────────────┘
+                │
+                ▼
+┌──────────────────────────────────────────────────────────────┐
+│ Phase 1: Design Specifications (RFC World Construction)      │
+│                                                              │
+│  • Formalize requirements as RFCs                            │
+│  • Define entities, relations, invariants, and constraints   │
+│  • Establish terminology, taxonomy, and evolution rules      │
+│  • Create a closed, legally-defined specification space      │
+│                                                              │
+│  Output: RFCs, index, history, terminology                   │
+│  Skill:  platonic-code-specs                                 │
+└───────────────┬──────────────────────────────────────────────┘
+                │
+                ▼
+┌──────────────────────────────────────────────────────────────┐
+│ Phase 2: Implementation Guide (Spec → Concrete Design)       │
+│                                                              │
+│  • Translate RFCs into implementation-ready architecture     │
+│  • Fix language, framework, module boundaries, and APIs      │
+│  • Make all design decisions explicit and traceable          │
+│  • Validate against RFCs (no new meaning allowed)            │
+│                                                              │
+│  Output: Implementation guides                               │
+│  Skill:  platonic-impl-guide                                 │
+└───────────────┬──────────────────────────────────────────────┘
+                │
+                ▼
+┌──────────────────────────────────────────────────────────────┐
+│ Phase 3: Code Implementation (Mechanical Realization)        │
+│                                                              │
+│  • Write code strictly following guides and RFCs             │
+│  • No speculative design or undocumented behavior            │
+│  • Code is a realization, not a source of truth              │
+│                                                              │
+│  Output: Source code                                         │
+│  Tooling: agent uses specs & guides as law                   │
+└───────────────┬──────────────────────────────────────────────┘
+                │
+                ▼
+┌──────────────────────────────────────────────────────────────┐
+│ Phase 4: Spec Compliance Review (Reality Check)              │
+│                                                              │
+│  • Verify code against RFCs and implementation guides        │
+│  • Detect gaps, drift, and contradictions                    │
+│  • Identify specs without code and code without specs        │
+│  • Produce traceable compliance reports                      │
+│                                                              │
+│  Output: Review & compliance reports                         │
+│  Skill:  platonic-code-review                                │
+└──────────────────────────────────────────────────────────────┘
+```
 
 ## Examples
 
