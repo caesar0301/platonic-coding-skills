@@ -173,14 +173,14 @@ An RFC must have exactly one of these statuses:
 
 #### Review
 
-**Meaning**: Ready for review and feedback
+**Meaning**: Ready for review, can be edited
 
 **Characteristics**:
-- Complete but not yet frozen
-- Awaiting review and approval
-- May be edited based on feedback
+- Complete enough for review
+- Open for feedback and revisions
+- Near-final state
 
-**When to use**: When RFC is complete and ready for team review
+**When to use**: When Draft is ready for official review
 
 #### Frozen
 
@@ -194,19 +194,31 @@ An RFC must have exactly one of these statuses:
 
 **When to use**: When RFC is complete, reviewed, and approved
 
+#### Deprecated
+
+**Meaning**: No longer active
+
+**Characteristics**:
+- Superseded by another RFC or no longer relevant
+- Kept for historical reference
+
+**When to use**: When an RFC is replaced or retired
+
 ### Changing Status
 
 #### Draft → Review
 
-1. Ensure RFC is complete
+1. Complete the RFC
 2. Update status to `Status: Review`
 3. Request review from core team
 
 #### Review → Frozen
 
 1. Address review feedback
-2. Update status to `Status: Frozen`
-3. Commit with message: `docs: freeze RFC-NNNN`
+2. Ensure consensus
+3. Update status to `Status: Frozen`
+4. Update `Last Updated` date
+5. Commit with message: `docs: freeze RFC-NNNN`
 
 #### Frozen → Amendment
 
@@ -222,7 +234,7 @@ Frozen RFCs cannot have their status changed. To update:
 
 ## Versioning Rules
 
-### For Draft RFCs
+### For Draft and Review RFCs
 
 - Edit in place
 - Update `Last Updated` field when making changes
@@ -276,20 +288,7 @@ Versioned RFCs use different metadata:
 
 #### Step 5: Update RFC Index
 
-Add version entry to [rfc-index.md](rfc-index.md):
-
-```markdown
-| RFC | Title | Versions | ... |
-| RFC-0001 | Title | [v001](RFC-0001-001.md), [v002](RFC-0001-002.md) | ... |
-```
-
-### Why Full Content, Not Diffs?
-
-- Each version is a complete, standalone reference
-- Readers don't need to reconstruct content from patches
-- Versions can be read independently
-- Simpler tooling and workflows
-- Clear historical record
+Add version entry to [rfc-index.md](rfc-index.md).
 
 ---
 
@@ -478,9 +477,9 @@ Follow RFC 2119 conventions:
 
 Use markdown links for all RFC references:
 
-- Link to RFCs: `[RFC-0001](RFC-0001.md)`
-- Link to sections: `[RFC-0001, Section 4](RFC-0001.md#4-design-principles)`
-- Link to versions: `[RFC-0001-v002](RFC-0001-002.md)`
+- Link to RFCs: `[RFC-NNNN](RFC-NNNN.md)`
+- Link to sections: `[RFC-NNNN, Section 4](RFC-NNNN.md#4-design-principles)`
+- Link to versions: `[RFC-NNNN-VVV](RFC-NNNN-VVV.md)`
 
 ### Diagrams
 
@@ -529,12 +528,12 @@ The rfc-namings.md file is a **living reference** that reflects the current stat
 
 | Field | Format | Description |
 |-------|--------|-------------|
-| `Status` | `Draft`, `Review`, or `Frozen` | Current RFC status |
+| `Status` | `Draft`, `Review`, `Frozen`, `Deprecated` | Current RFC status |
 | `Authors` | Free text | RFC author(s) |
 | `Created` | `YYYY-MM-DD` | Date RFC was created |
 | `Last Updated` | `YYYY-MM-DD` | Date of most recent change |
-| `Depends on` | `RFC-XXXX, RFC-YYYY` or `—` | RFC dependencies |
-| `Supersedes` | `RFC-ZZZZ` or `—` | RFC this replaces |
+| `Depends on` | `RFC-NNNN, RFC-MMMM` or `—` | RFC dependencies |
+| `Supersedes` | `RFC-NNNN` or `—` | RFC this replaces |
 
 ### Optional Fields
 
@@ -603,4 +602,4 @@ The rfc-namings.md file is a **living reference** that reflects the current stat
 
 ---
 
-**For questions or clarifications about RFC management, contact the {{PROJECT_NAME}} core team.**
+-**For questions or clarifications about RFC management, contact the {{PROJECT_NAME}} core team.**
