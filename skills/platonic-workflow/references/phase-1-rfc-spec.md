@@ -6,7 +6,7 @@
 
 ## Objective
 
-Convert the Phase 0 **design draft** into a formal **RFC specification** (Status: Draft) and refine it using **platonic-code-specs**.
+Convert the Phase 0 **design draft** into a formal **RFC specification** (Status: Draft) and refine it using **platonic-specs**.
 
 ## Inputs
 
@@ -28,10 +28,10 @@ Convert the Phase 0 **design draft** into a formal **RFC specification** (Status
   - Preserves all material from the design draft in a structured, formal form.
 - Write the RFC to the specs directory (default: `docs/specs/`), e.g. `docs/specs/rfc-NNN-<short-title>.md`.
 
-### Step 3: Refine with platonic-code-specs
+### Step 3: Refine with platonic-specs
 
-- **Call the platonic-code-specs skill** to refine the specifications.
-- Use the **refine** operation: read `skills/platonic-code-specs/references/refine-specs.md` and apply it to the specs directory (`docs/specs/` by default).
+- **Call the platonic-specs skill** to refine the specifications.
+- Use the **refine** operation: read `skills/platonic-specs/references/refine-specs.md` and apply it to the specs directory (`docs/specs/` by default).
 - This updates history, index, namings, and validates consistency and compliance.
 
 ## Output

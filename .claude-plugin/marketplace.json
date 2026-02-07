@@ -9,7 +9,7 @@
     "url": "https://github.com/caesar0301/platonic-coding-skills"
   },
   "metadata": {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Professional Agent Skills collection for AI-powered development workflows. Includes comprehensive skills for RFC specification management, implementation guides, and code review, following the Agent Skills standard from agentskills.io",
     "keywords": [
       "agent-skills",
@@ -26,40 +26,70 @@
   },
   "skills": [
     {
-      "name": "platonic-coding",
-      "path": "skills/platonic-coding",
-      "description": "Orchestrate the full Platonic Coding workflow from design draft to RFC, impl guide, code, and review. Always shows current phase; invokes platonic-code-specs, platonic-impl-guide, and platonic-code-review",
-      "version": "1.0.0",
+      "name": "platonic-workflow",
+      "path": "skills/platonic-workflow",
+      "description": "Orchestrate the full Platonic Coding workflow from design draft to RFC, impl guide, code, and review. Always shows current phase; invokes platonic-specs, platonic-impl-guide, and platonic-code-review",
+      "version": "1.0.1",
       "category": "workflow",
-      "tags": ["workflow", "platonic-coding", "design-draft", "rfc", "implementation-guide", "code-review", "phase"]
+      "tags": [
+        "workflow",
+        "platonic-workflow",
+        "design-draft",
+        "rfc",
+        "implementation-guide",
+        "code-review",
+        "phase"
+      ]
     },
     {
-      "name": "platonic-code-specs",
-      "path": "skills/platonic-code-specs",
+      "name": "platonic-specs",
+      "path": "skills/platonic-specs",
       "description": "Manage RFC-style specifications with templates, validation, and dynamic generation of history, index, and namings files",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "category": "documentation",
-      "tags": ["rfc", "specifications", "documentation", "validation", "taxonomy"]
+      "tags": [
+        "rfc",
+        "specifications",
+        "documentation",
+        "validation",
+        "taxonomy"
+      ]
     },
     {
       "name": "platonic-code-review",
       "path": "skills/platonic-code-review",
       "description": "Review code implementation against specifications to ensure consistency and completeness. Validates spec-to-code alignment and generates compliance reports",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "category": "validation",
-      "tags": ["spec-compliance", "validation", "consistency-check", "requirements", "gap-analysis"]
+      "tags": [
+        "spec-compliance",
+        "validation",
+        "consistency-check",
+        "requirements",
+        "gap-analysis"
+      ]
     },
     {
       "name": "platonic-impl-guide",
       "path": "skills/platonic-impl-guide",
       "description": "Create implementation guides that translate RFC specifications into concrete, project-specific technical designs. Language-aware and framework-aware",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "category": "implementation",
-      "tags": ["implementation-guide", "technical-design", "architecture", "rfc-implementation", "module-design"]
+      "tags": [
+        "implementation-guide",
+        "technical-design",
+        "architecture",
+        "rfc-implementation",
+        "module-design"
+      ]
     }
   ],
   "compatibility": {
-    "agents": ["claude-code", "cursor", "windsurf"],
+    "agents": [
+      "claude-code",
+      "cursor",
+      "windsurf"
+    ],
     "format": "agent-skills-1.0"
   }
 }

@@ -1,9 +1,9 @@
 ---
-name: platonic-coding
-description: Orchestrate the full Platonic Coding workflow from conceptual design to RFC specs, implementation guides, code implementation, and spec-compliance review. Always shows current phase; uses interactive chat in Phase 0, invokes platonic-code-specs in Phase 1, platonic-impl-guide in Phase 2, coding agents in Phase 3, and platonic-code-review in Phase 4.
+name: platonic-workflow
+description: Orchestrate the full Platonic Coding workflow from conceptual design to RFC specs, implementation guides, code implementation, and spec-compliance review. Always shows current phase; uses interactive chat in Phase 0, invokes platonic-specs in Phase 1, platonic-impl-guide in Phase 2, coding agents in Phase 3, and platonic-code-review in Phase 4.
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   author: "Xiaming Chen"
   category: "workflow"
 ---
@@ -19,7 +19,7 @@ Use this skill when you need to:
 - **Run the full workflow** from design idea to reviewed implementation
 - **Progress through phases** with clear phase visibility and handoffs
 - **Ensure traceability** from design draft → RFC → impl guide → code → review
-- **Coordinate other skills** (platonic-code-specs, platonic-impl-guide, platonic-code-review) in the correct order
+- **Coordinate other skills** (platonic-specs, platonic-impl-guide, platonic-code-review) in the correct order
 
 Keywords: workflow, platonic coding, design draft, RFC, implementation guide, code review, phase
 
@@ -39,7 +39,7 @@ Keywords: workflow, platonic coding, design draft, RFC, implementation guide, co
 | Phase | Focus | Output Location | Skills / Actions |
 |-------|--------|------------------|------------------|
 | **0** | Conceptual design, requirements | `docs/drafts/` | Interactive chat, optional items |
-| **1** | Formal RFC from design draft | `docs/specs/` | Generate RFC, then **platonic-code-specs** (refine) |
+| **1** | Formal RFC from design draft | `docs/specs/` | Generate RFC, then **platonic-specs** (refine) |
 | **2** | Concrete impl guide from RFC | `docs/impl/` | **platonic-impl-guide** (create guide) |
 | **3** | Write code from guide | Codebase | Coding agents |
 | **4** | Review code vs specs & impl RFCs | Report | **platonic-code-review** |
@@ -61,7 +61,7 @@ Keywords: workflow, platonic coding, design draft, RFC, implementation guide, co
 - **Optional**: Ask the user for RFC number/index if not specified.
 - **Actions**:
   1. Generate RFC from the Phase 0 design draft.
-  2. **Call platonic-code-specs** to refine the generated RFC (and related specs).
+  2. **Call platonic-specs** to refine the generated RFC (and related specs).
 - **Output**: RFC(s) in the specs directory.
 - **Location**: Default `docs/specs/`.
 - **Reference**: See `references/phase-1-rfc-spec.md`.
@@ -109,7 +109,7 @@ Paths may be overridden by the user.
 |-------|----------------|---------|
 | Overview | `workflow-overview.md` | End-to-end workflow and phase transitions |
 | Phase 0 | `phase-0-design-draft.md` | Conceptual design and design draft |
-| Phase 1 | `phase-1-rfc-spec.md` | RFC generation and platonic-code-specs refine |
+| Phase 1 | `phase-1-rfc-spec.md` | RFC generation and platonic-specs refine |
 | Phase 2 | `phase-2-impl-guide.md` | platonic-impl-guide usage |
 | Phase 3 | `phase-3-implementation.md` | Coding agents and implementation |
 | Phase 4 | `phase-4-review.md` | platonic-code-review usage |
@@ -121,12 +121,12 @@ See [references/REFERENCE.md](references/REFERENCE.md) for detailed phase proced
 1. **Always show current phase** at the start of each step and in status summaries.
 2. **Confirm handoffs**: Before leaving a phase, confirm outputs and paths with the user if ambiguous.
 3. **Ask for indices when useful**: In Phase 1 (RFC number) and Phase 2 (RFC for impl guide), ask for index if not provided.
-4. **Call skills explicitly**: Phase 1 → platonic-code-specs (refine); Phase 2 → platonic-impl-guide; Phase 4 → platonic-code-review.
+4. **Call skills explicitly**: Phase 1 → platonic-specs (refine); Phase 2 → platonic-impl-guide; Phase 4 → platonic-code-review.
 5. **Preserve traceability**: Keep links between design draft → RFC → impl guide → code in summaries and docs.
 
 ## Dependencies
 
-- **platonic-code-specs**: Phase 1 (refine RFCs).
+- **platonic-specs**: Phase 1 (refine RFCs).
 - **platonic-impl-guide**: Phase 2 (create/update impl guides).
 - **platonic-code-review**: Phase 4 (review code vs specs and impl guides).
 - Read/write access to `docs/drafts/`, `docs/specs/`, `docs/impl/` and codebase as needed.

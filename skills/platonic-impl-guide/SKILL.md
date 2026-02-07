@@ -3,7 +3,7 @@ name: platonic-impl-guide
 description: Create and manage implementation guides that translate RFC specifications into concrete, project-specific implementation designs. Implementation guides are language-aware, framework-aware, and MUST NOT contradict RFC specs. Use when planning implementation of RFC specifications, creating detailed technical designs, or documenting implementation architecture.
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   author: "Xiaming Chen"
   category: "implementation"
 ---

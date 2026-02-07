@@ -50,7 +50,7 @@ platonic-impl-guide/
 
 ## Changes Overview
 
-### 1. Restructured platonic-code-specs Skill
+### 1. Restructured platonic-specs Skill
 
 **Directory Changes:**
 - ✅ Renamed `prompts/` → `references/` (Agent Skills standard)
@@ -120,10 +120,10 @@ platonic-impl-guide/
 
 ## Skills Summary
 
-### Skill 1: platonic-code-specs
+### Skill 1: platonic-specs
 
 **Category:** Documentation  
-**Version:** 1.0.0  
+**Version:** 1.0.1  
 **Purpose:** Manage RFC-style specifications
 
 **Operations:**
@@ -138,7 +138,7 @@ platonic-impl-guide/
 
 **File Structure:**
 ```
-platonic-code-specs/
+platonic-specs/
 ├── SKILL.md              # Agent Skills definition and docs
 ├── references/            # Reference documentation
 │   ├── REFERENCE.md      # Complete guide
@@ -152,7 +152,7 @@ platonic-code-specs/
 ### Skill 2: platonic-code-review
 
 **Category:** Validation  
-**Version:** 1.0.0  
+**Version:** 1.0.1  
 **Purpose:** Validate code against specifications
 
 **Review Process:**
@@ -241,7 +241,7 @@ Both skills now fully comply with [Agent Skills specification](https://agentskil
 
 ### For Existing Users
 
-**If you were using platonic-code-specs:**
+**If you were using platonic-specs:**
 - Update any references from `prompts/` to `references/`
 - Update any references from `templates/` to `assets/`
 - Otherwise, functionality is identical
@@ -258,15 +258,15 @@ Both skills now fully comply with [Agent Skills specification](https://agentskil
 ### Modified:
 - `.claude-plugin/marketplace.json`
 - `README.md`
-- `skills/platonic-code-specs/SKILL.md`
-- `skills/platonic-code-specs/references/init-specs.md`
+- `skills/platonic-specs/SKILL.md`
+- `skills/platonic-specs/references/init-specs.md`
 
-### Renamed (platonic-code-specs):
+### Renamed (platonic-specs):
 - `prompts/` → `references/`
 - `templates/` → `assets/`
 
 ### Created:
-- `skills/platonic-code-specs/references/REFERENCE.md`
+- `skills/platonic-specs/references/REFERENCE.md`
 - `skills/platonic-code-review/` (entire directory)
 - `skills/platonic-code-review/SKILL.md`
 - `skills/platonic-code-review/references/REFERENCE.md`
