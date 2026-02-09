@@ -11,7 +11,7 @@ A professional collection of [Agent Skills](https://agentskills.io) for AI-power
 
 ![manifesto-infographic](./platonic-coding-manifesto.png)
 
-See a full description in [PLATONIC_CODING_MANIFESTO.md](https://github.com/caesar0301/platonic-coding-skills/blob/main/PLATONIC_CODING_MANIFESTO.md).
+See a full description in [Manifesto](https://github.com/caesar0301/platonic-coding-skills/blob/main/PLATONIC_CODING_MANIFESTO.md).
 
 ## Available Skills
 
