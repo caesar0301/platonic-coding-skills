@@ -1,6 +1,6 @@
 # Platonic Coding Skills
 
-A professional collection of [Agent Skills](https://agentskills.io) for AI-powered Platonic Coding workflow.
+A professional collection of Agent Skills for AI-powered [Platonic Coding](https://www.xiaming.site/2026/02/06/platonic-coding/) workflow.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Agent Skills Format](https://img.shields.io/badge/format-Agent%20Skills%201.0-blue)](https://agentskills.io)
