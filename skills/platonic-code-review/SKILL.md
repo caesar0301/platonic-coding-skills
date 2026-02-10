@@ -3,7 +3,7 @@ name: platonic-code-review
 description: Review code implementation against specifications to ensure consistency and completeness. Use when validating that code correctly implements RFC specs, requirements documents, or design specifications. Generates reports by default without modifying code.
 license: MIT
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
   author: "Xiaming Chen"
   category: "validation"
 ---

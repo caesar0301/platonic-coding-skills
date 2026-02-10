@@ -135,7 +135,7 @@ Find statements that conflict with RFC.
 ## Example
 
 **Input**:
-- Guide: `references/queue_impl.md`
+- Guide: `docs/impl/queue_impl.md`
 - RFC: `specs/RFC-0042.md`
 
 **Validation**:

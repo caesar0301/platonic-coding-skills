@@ -20,7 +20,7 @@ Read [workflow-overview.md](workflow-overview.md) for phase order, default paths
 ## Execution Order
 
 1. **Phase 0**: Follow `phase-0-design-draft.md`. Output: design draft (default `docs/drafts/`).
-2. **Phase 1**: Follow `phase-1-rfc-spec.md`. Optionally ask for RFC index. Generate RFC, then call **platonic-specs** (refine). Output: RFC in `docs/specs/`.
+2. **Phase 1**: Follow `phase-1-rfc-spec.md`. Optionally ask for RFC index. Generate RFC, then call **platonic-specs** (refine). Output: RFC in `specs/`.
 3. **Phase 2**: Follow `phase-2-impl-guide.md`. Optionally ask for RFC index. Call **platonic-impl-guide** (create guide). Output: impl guide in `docs/impl/`.
 4. **Phase 3**: Follow `phase-3-implementation.md`. Run coding agents. Output: source code.
 5. **Phase 4**: Follow `phase-4-review.md`. Call **platonic-code-review** (code + targeted RFC spec + impl guide). Output: review/compliance report.
@@ -29,7 +29,7 @@ Read [workflow-overview.md](workflow-overview.md) for phase order, default paths
 ## Default Paths
 
 - Design drafts: `docs/drafts/`
-- RFC specs: `docs/specs/`
+- RFC specs: `specs/`
 - Implementation guides: `docs/impl/`
 
 ## Skill Dependencies

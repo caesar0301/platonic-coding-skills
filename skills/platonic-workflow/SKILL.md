@@ -3,7 +3,7 @@ name: platonic-workflow
 description: Orchestrate the full Platonic Coding workflow from conceptual design to RFC specs, implementation guides, code implementation, and spec-compliance review. Always shows current phase; uses interactive chat in Phase 0, invokes platonic-specs in Phase 1, platonic-impl-guide in Phase 2, coding agents in Phase 3, and platonic-code-review in Phase 4.
 license: MIT
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
   author: "Xiaming Chen"
   category: "workflow"
 ---
@@ -39,7 +39,7 @@ Keywords: workflow, platonic coding, design draft, RFC, implementation guide, co
 | Phase | Focus | Output Location | Skills / Actions |
 |-------|--------|------------------|------------------|
 | **0** | Conceptual design, requirements | `docs/drafts/` | Interactive chat, optional items |
-| **1** | Formal RFC from design draft | `docs/specs/` | Generate RFC, then **platonic-specs** (refine) |
+| **1** | Formal RFC from design draft | `specs/` | Generate RFC, then **platonic-specs** (refine) |
 | **2** | Concrete impl guide from RFC | `docs/impl/` | **platonic-impl-guide** (create guide) |
 | **3** | Write code from guide | Codebase | Coding agents |
 | **4** | Review code vs specs & impl RFCs | Report | **platonic-code-review** |
@@ -63,7 +63,7 @@ Keywords: workflow, platonic coding, design draft, RFC, implementation guide, co
   1. Generate RFC from the Phase 0 design draft.
   2. **Call platonic-specs** to refine the generated RFC (and related specs).
 - **Output**: RFC(s) in the specs directory.
-- **Location**: Default `docs/specs/`.
+- **Location**: Default `specs/`.
 - **Reference**: See `references/phase-1-rfc-spec.md`.
 
 ### Phase 2: Implementation Guide
@@ -98,7 +98,7 @@ Keywords: workflow, platonic coding, design draft, RFC, implementation guide, co
 | Artifact | Default Path |
 |----------|--------------|
 | Design drafts | `docs/drafts/` |
-| RFC specs | `docs/specs/` |
+| RFC specs | `specs/` |
 | Implementation guides | `docs/impl/` |
 
 Paths may be overridden by the user.
@@ -129,4 +129,4 @@ See [references/REFERENCE.md](references/REFERENCE.md) for detailed phase proced
 - **platonic-specs**: Phase 1 (refine RFCs).
 - **platonic-impl-guide**: Phase 2 (create/update impl guides).
 - **platonic-code-review**: Phase 4 (review code vs specs and impl guides).
-- Read/write access to `docs/drafts/`, `docs/specs/`, `docs/impl/` and codebase as needed.
+- Read/write access to `docs/drafts/`, `specs/`, `docs/impl/` and codebase as needed.

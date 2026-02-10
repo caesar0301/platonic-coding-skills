@@ -11,7 +11,7 @@
 ## Inputs
 
 - **Code**: Implemented in Phase 3 (relevant directories/modules).
-- **RFC spec(s)**: From Phase 1 (e.g., `docs/specs/rfc-NNN-<title>.md`).
+- **RFC spec(s)**: From Phase 1 (e.g., `specs/rfc-NNN-<title>.md`).
 - **Implementation guide(s)**: From Phase 2 (e.g., `docs/impl/rfc-NNN-<feature>-impl.md`).
 
 ## Process
@@ -20,8 +20,8 @@
 
 - **Use the platonic-code-review skill** to review:
   - The **code implementation** from Phase 3.
-  - The **targeted RFC spec** (docs/specs).
-  - The **targeted impl RFC/implementation guide** (docs/impl).
+  - The **targeted RFC spec** (specs/).
+  - The **targeted impl RFC/implementation guide** (docs/impl/).
 - Read `skills/platonic-code-review/references/REFERENCE.md` (or the skill’s review procedure) and invoke the skill accordingly.
 - Scope the review to the RFC and impl guide used in this workflow so the report is focused.
 

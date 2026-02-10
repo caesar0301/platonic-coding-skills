@@ -13,10 +13,9 @@ This document provides detailed information about all operations available in th
 
 ## Operation Overview
 
-The skill provides 8 operations organized into three categories:
+The skill provides 7 operations organized into two categories:
 
-### Initialization Operations
-- **Initialize Specs Folder** (`init-specs.md`) - Bootstrap a new specification system
+> **Note**: For project initialization (creating specs directories and templates), use **platonic-init**.
 
 ### Generation Operations
 - **Generate History** (`generate-history.md`) - Create/update RFC change history
@@ -31,44 +30,7 @@ The skill provides 8 operations organized into three categories:
 
 ## Detailed Operation Guides
 
-### 1. Initialize Specs Folder
-
-**Reference**: `init-specs.md`
-
-**Purpose**: Create a new specification system with all foundation files.
-
-**Inputs**:
-- **Project name**: The name of your project (e.g., "MyProject", "PlatonicCodingSkills")
-- **Specs directory**: Path where specs will be created (e.g., "./specs", "./docs/specs")
-
-**Process**:
-1. Creates the specs directory if it doesn't exist
-2. Reads all template files from `assets/`
-3. Replaces `{{PROJECT_NAME}}` with provided project name
-4. Replaces `YYYY-MM-DD` with current date
-5. Writes output files to specs directory
-
-**Output Files**:
-- `rfc-standard.md` - Project-specific RFC format and guidelines
-- `rfc-history.md` - Change history template (empty, ready for events)
-- `rfc-index.md` - RFC index template (empty, ready for entries)
-- `rfc-namings.md` - Terminology reference template (empty, ready for terms)
-
-**Example Usage**:
-```
-Read references/init-specs.md and apply it with:
-- Project name: "MyProject"
-- Specs directory: "./specs"
-```
-
-**Notes**:
-- Skips files that already exist (won't overwrite)
-- Preserves exact capitalization of project name
-- Creates parent directories if needed
-
----
-
-### 2. Refine Specifications
+### 1. Refine Specifications
 
 **Reference**: `refine-specs.md`
 
@@ -106,7 +68,7 @@ Show me the validation report when complete.
 
 ---
 
-### 3. Generate History
+### 2. Generate History
 
 **Reference**: `generate-history.md`
 
@@ -139,7 +101,7 @@ for all RFCs in ./specs/
 
 ---
 
-### 4. Generate Index
+### 3. Generate Index
 
 **Reference**: `generate-index.md`
 
@@ -168,7 +130,7 @@ for all RFCs in ./specs/
 
 ---
 
-### 5. Generate Namings
+### 4. Generate Namings
 
 **Reference**: `generate-namings.md`
 
@@ -201,7 +163,7 @@ from all active RFCs in ./specs/
 
 ---
 
-### 6. Validate Consistency
+### 5. Validate Consistency
 
 **Reference**: `validate-consistency.md`
 
@@ -229,7 +191,7 @@ in ./specs/ for consistency issues
 
 ---
 
-### 7. Check Taxonomy
+### 6. Check Taxonomy
 
 **Reference**: `check-taxonomy.md`
 
@@ -255,7 +217,7 @@ consistency across ./specs/
 
 ---
 
-### 8. Check Standard Compliance
+### 7. Check Standard Compliance
 
 **Reference**: `check-standard-compliance.md`
 
@@ -301,7 +263,6 @@ platonic-specs/
 ├── SKILL.md                           # Skill definition and user-facing docs
 ├── references/                        # Reference documentation
 │   ├── REFERENCE.md                   # This file
-│   ├── init-specs.md                  # Initialize operation
 │   ├── refine-specs.md                # Refine operation
 │   ├── generate-history.md            # History generation
 │   ├── generate-index.md              # Index generation
@@ -322,13 +283,12 @@ platonic-specs/
 ### Example 1: Starting a New Project
 
 ```
-1. Read references/init-specs.md and apply it with:
-   - Project name: "MyProject"
-   - Specs directory: "./docs/specs"
+1. Use platonic-init to scaffold the project's Platonic Coding infrastructure
+   (creates specs/, docs/impl/, docs/drafts/, .platonic.yml)
 
 2. Review the generated rfc-standard.md and customize if needed
 
-3. Create your first RFC using assets/rfc-template.md as a guide
+3. Create your first RFC using specs/templates/rfc-template.md as a guide
 ```
 
 ### Example 2: Weekly Maintenance
@@ -367,10 +327,6 @@ platonic-specs/
 
 ## Troubleshooting
 
-### Issue: Templates not found during initialization
-
-**Solution**: Ensure you're running the operation from a location where `assets/` can be accessed via relative paths, or provide absolute paths.
-
 ### Issue: Generated files are empty
 
 **Solution**: Check that your specs directory contains valid RFC files with proper frontmatter metadata.
@@ -401,7 +357,7 @@ This skill integrates well with:
 
 ## Best Practices Summary
 
-1. **Initialize once**: Use init-specs.md when starting a new project
+1. **Initialize with platonic-init**: Use platonic-init when starting a new project
 2. **Validate often**: Run consistency checks regularly
 3. **Update indices**: Regenerate after any RFC changes
 4. **Follow the standard**: Keep your rfc-standard.md as the source of truth

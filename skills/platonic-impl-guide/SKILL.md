@@ -3,7 +3,7 @@ name: platonic-impl-guide
 description: Create and manage implementation guides that translate RFC specifications into concrete, project-specific implementation designs. Implementation guides are language-aware, framework-aware, and MUST NOT contradict RFC specs. Use when planning implementation of RFC specifications, creating detailed technical designs, or documenting implementation architecture.
 license: MIT
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
   author: "Xiaming Chen"
   category: "implementation"
 ---
@@ -150,7 +150,7 @@ The implementation should use Rust with async/await patterns.
 ### Example 2: Validate Existing Guide
 
 ```
-Use platonic-impl-guide to validate that references/queue_impl.md
+Use platonic-impl-guide to validate that docs/impl/queue_impl.md
 does not contradict RFC-0042 specifications.
 ```
 
@@ -187,4 +187,4 @@ Tests (verification)
 - Read access to RFC specifications
 - Understanding of target language and framework
 - Knowledge of project architecture and conventions
-- Write access to references/ or designated impl-guide directory
+- Write access to `docs/impl/` or designated impl-guide directory

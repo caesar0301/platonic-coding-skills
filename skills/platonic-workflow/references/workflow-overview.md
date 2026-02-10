@@ -21,7 +21,7 @@ Execute the full five-phase Platonic Coding workflow with clear phase visibility
 Phase 0: Conceptual Design
     → design draft (docs/drafts/ or user-provided)
 Phase 1: RFC from draft + platonic-specs refine
-    → RFC in docs/specs/
+    → RFC in specs/
 Phase 2: platonic-impl-guide from RFC
     → impl guide in docs/impl/
 Phase 3: Coding agents write code
@@ -34,7 +34,7 @@ FINISHED
 ## Default Paths
 
 - Design drafts: `docs/drafts/`
-- RFC specs: `docs/specs/`
+- RFC specs: `specs/`
 - Implementation guides: `docs/impl/`
 
 User may override any path.

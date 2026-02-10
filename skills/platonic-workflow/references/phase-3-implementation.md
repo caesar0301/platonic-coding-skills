@@ -11,7 +11,7 @@
 ## Inputs
 
 - **Implementation guide**: From Phase 2 (default `docs/impl/`, e.g. `rfc-NNN-<feature>-impl.md`).
-- **RFC spec**: From Phase 1 (default `docs/specs/`) for reference.
+- **RFC spec**: From Phase 1 (default `specs/`) for reference.
 - **Existing codebase**: Target repo and structure.
 
 ## Process

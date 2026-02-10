@@ -10,7 +10,7 @@ Produce a **concrete implementation guide** from the Phase 1 RFC spec, integrate
 
 ## Inputs
 
-- **RFC spec**: From Phase 1 (default `docs/specs/`, e.g. `rfc-NNN-<title>.md`).
+- **RFC spec**: From Phase 1 (default `specs/`, e.g. `rfc-NNN-<title>.md`).
 - **RFC number/index** (optional): If the user has not specified for which RFC to create the impl guide, ask (e.g., "For which RFC should I create the implementation guide?").
 - **Target module/language/framework**: From user or inferred from codebase.
 
@@ -26,7 +26,7 @@ Produce a **concrete implementation guide** from the Phase 1 RFC spec, integrate
 - **Use the platonic-impl-guide skill** to create the implementation guide.
 - Read `skills/platonic-impl-guide/references/create-guide.md` and follow it.
 - Inputs:
-  - RFC document path (e.g., `docs/specs/rfc-001-authentication.md`)
+  - RFC document path (e.g., `specs/rfc-001-authentication.md`)
   - Target module name
   - Language and optional framework
   - Output path: default `docs/impl/` (e.g., `docs/impl/rfc-001-auth-impl.md`)

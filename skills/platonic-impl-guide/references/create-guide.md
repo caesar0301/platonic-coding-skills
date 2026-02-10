@@ -19,7 +19,7 @@ Before creating an implementation guide, ensure:
 | Target Module | Yes | Name of implementing module/crate/package |
 | Language | Yes | Target programming language (e.g., Rust, Python, TypeScript) |
 | Framework | No | Framework if applicable (e.g., Tokio, Actix, React) |
-| Output Path | No | Where to save the guide (default: `references/`) |
+| Output Path | No | Where to save the guide (default: `docs/impl/`) |
 
 ## Process
 
@@ -133,7 +133,7 @@ After creating the guide:
 - Language: Rust
 - Framework: Tokio (async runtime)
 
-**Output**: `references/queue_impl.md`
+**Output**: `docs/impl/queue_impl.md`
 
 The guide would include:
 - Crate structure for `acme-queue`

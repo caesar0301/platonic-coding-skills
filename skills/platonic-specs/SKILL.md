@@ -1,9 +1,9 @@
 ---
 name: platonic-specs
-description: Manage RFC-style specifications with templates, validation, and dynamic generation of history, index, and namings files. Use when initializing specification systems, validating RFC documents, checking taxonomy compliance, or generating specification indices and terminology references.
+description: Manage RFC-style specifications with validation, and dynamic generation of history, index, and namings files. Use when validating RFC documents, checking taxonomy compliance, or generating specification indices and terminology references.
 license: MIT
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
   author: "Xiaming Chen"
   category: "documentation"
 ---
@@ -16,23 +16,16 @@ Manage RFC-style specifications in development projects with AI-driven operation
 
 Use this skill when you need to:
 
-- **Initialize** a new project's RFC specification system
 - **Validate** existing specifications for consistency and standard compliance
 - **Generate** or update history, index, and terminology files
 - **Check** taxonomy and cross-reference consistency
 - **Refine** specifications following best practices
 
+> **Note**: For project initialization (creating specs directories and templates), use **platonic-init**.
+
 Keywords: RFC, specifications, documentation, validation, taxonomy, terminology
 
 ## Quick Start
-
-### Initialize a New Specification System
-
-Read `references/init-specs.md` and provide:
-- Project name (e.g., "MyProject")
-- Target specs directory path (e.g., "./specs")
-
-This creates the foundation files: `rfc-standard.md`, `rfc-history.md`, `rfc-index.md`, `rfc-namings.md`
 
 ### Refine Existing Specifications
 
@@ -44,11 +37,10 @@ Read `references/refine-specs.md` to run a comprehensive refinement that:
 
 ## Available Operations
 
-This skill provides 8 distinct operations, each defined in `references/`:
+This skill provides 7 distinct operations, each defined in `references/`:
 
 | Operation | Reference File | Purpose |
 |-----------|----------------|---------|
-| **Initialize** | `init-specs.md` | Create new specs folder from templates |
 | **Refine** | `refine-specs.md` | Comprehensive validation and update |
 | **Generate History** | `generate-history.md` | Update RFC change history |
 | **Generate Index** | `generate-index.md` | Update RFC index with quick links |
@@ -61,7 +53,7 @@ See [references/REFERENCE.md](references/REFERENCE.md) for detailed operation gu
 
 ## Templates
 
-Templates are provided in `assets/` for initializing new specification systems:
+Templates are provided in `assets/` as references:
 
 - `rfc-standard.md.template` - RFC format and guidelines
 - `rfc-history.md.template` - Change history structure
@@ -69,7 +61,7 @@ Templates are provided in `assets/` for initializing new specification systems:
 - `rfc-namings.md.template` - Terminology reference format
 - `rfc-template.md` - Individual RFC template
 
-Templates use `{{PROJECT_NAME}}` placeholders replaced during initialization.
+Templates use `{{PROJECT_NAME}}` placeholders.
 
 ## Best Practices
 

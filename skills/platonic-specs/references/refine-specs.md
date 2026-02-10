@@ -21,25 +21,25 @@ This is a comprehensive operation that performs multiple checks and updates:
 
 ## Step 1: Validate Consistency
 
-**Read**: `prompts/validate-consistency.md` and apply it to the specs directory.
+**Read**: `references/validate-consistency.md` and apply it to the specs directory.
 
 **Expected Output**: List of consistency errors and warnings
 
 ## Step 2: Check Taxonomy
 
-**Read**: `prompts/check-taxonomy.md` and apply it to the specs directory.
+**Read**: `references/check-taxonomy.md` and apply it to the specs directory.
 
 **Expected Output**: Taxonomy consistency report
 
 ## Step 3: Sync Namings
 
-**Read**: `prompts/generate-namings.md` and apply it to update rfc-namings.md.
+**Read**: `references/generate-namings.md` and apply it to update rfc-namings.md.
 
 **Expected Output**: Updated rfc-namings.md file
 
 ## Step 4: Check Standard Compliance
 
-**Read**: `prompts/check-standard-compliance.md` and apply it to the specs directory.
+**Read**: `references/check-standard-compliance.md` and apply it to the specs directory.
 
 **Expected Output**: Compliance report with errors and warnings
 
@@ -47,9 +47,9 @@ This is a comprehensive operation that performs multiple checks and updates:
 
 Perform these operations in order:
 
-1. **Generate History**: Read `prompts/generate-history.md` and update rfc-history.md
-2. **Generate Index**: Read `prompts/generate-index.md` and update rfc-index.md
-3. **Generate Namings**: Read `prompts/generate-namings.md` and update rfc-namings.md
+1. **Generate History**: Read `references/generate-history.md` and update rfc-history.md
+2. **Generate Index**: Read `references/generate-index.md` and update rfc-index.md
+3. **Generate Namings**: Read `references/generate-namings.md` and update rfc-namings.md
 
 ## Output Summary
 
@@ -86,6 +86,6 @@ After completion, verify:
 
 ## Notes
 
-- Always read the referenced prompt files before executing their operations
+- Always read the referenced reference files before executing their operations
 - Preserve existing content when updating files (only modify specified sections)
 - Update "Last Updated" dates in modified files to today's date
