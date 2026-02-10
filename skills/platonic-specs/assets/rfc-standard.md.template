@@ -7,12 +7,15 @@ This document defines the process, conventions, and guidelines for creating and 
 ## Table of Contents
 
 1. [Overview](#overview)
-2. [RFC Process](#rfc-process)
-3. [Naming Conventions](#naming-conventions)
-4. [Status Management](#status-management)
-5. [Versioning Rules](#versioning-rules)
-6. [RFC Template](#rfc-template)
-7. [Best Practices](#best-practices)
+2. [Spec Kinds](#spec-kinds)
+3. [RFC Process](#rfc-process)
+4. [Naming Conventions](#naming-conventions)
+5. [Status Management](#status-management)
+6. [Versioning Rules](#versioning-rules)
+7. [RFC Template](#rfc-template)
+8. [Best Practices](#best-practices)
+9. [Metadata Fields Reference](#metadata-fields-reference)
+10. [FAQ](#faq)
 
 ---
 
@@ -34,13 +37,69 @@ RFCs serve as:
 
 ---
 
+## Spec Kinds
+
+{{PROJECT_NAME}} RFCs fall into three kinds, each with a distinct purpose and level of abstraction:
+
+### Conceptual Design
+
+**Purpose**: Define the system's vision, principles, taxonomy, and invariants.
+
+**Contains**:
+- System goals and design philosophy
+- Fundamental abstractions and conceptual model
+- Core terminology and taxonomy
+- System-wide invariants
+
+**Does NOT contain**: Schemas, APIs, code, storage formats, component boundaries.
+
+**When to use**: Starting a new system or subsystem; defining foundational concepts that other specs depend on.
+
+### Architecture Design
+
+**Purpose**: Define components, layers, responsibilities, data flow, and constraints.
+
+**Contains**:
+- Component/module structure and responsibilities
+- Data flow between components
+- Invariants (MUST/MUST NOT rules)
+- Abstract schemas and dependency constraints
+
+**Does NOT contain**: Concrete API signatures, language-specific code, implementation details.
+
+**When to use**: Designing system architecture, layer boundaries, storage models, or subsystem structure.
+
+### Implementation Interface Design
+
+**Purpose**: Define API contracts, naming conventions, and interface signatures.
+
+**Contains**:
+- Naming patterns and conventions
+- Type/struct definitions
+- Trait/interface signatures
+- Error handling patterns and flow control semantics
+
+**May be language-specific**: Code blocks in the target language are appropriate.
+
+**When to use**: Defining cross-component API contracts, data access patterns, or shared interfaces.
+
+### Dependency Flow Between Kinds
+
+```
+Conceptual Design → Architecture Design → Implementation Interface Design
+```
+
+Each kind builds on the previous. Conceptual specs typically have no RFC dependencies; architecture specs depend on conceptual; impl-interface specs depend on architecture. This is guidance, not a hard rule.
+
+---
+
 ## RFC Process
 
 ### When to Create an RFC
 
 Create an RFC when:
 
-- Defining a new subsystem or layer (e.g., storage, execution)
+- Defining a new subsystem or layer
 - Specifying public API contracts
 - Establishing semantic guarantees or invariants
 - Making cross-cutting architectural decisions
@@ -63,17 +122,17 @@ stateDiagram-v2
     Review --> Frozen: Approved
     Frozen --> Amendment: Need changes
     Amendment --> Frozen: Create versioned RFC
-    
+
     note right of Draft
         Editable in place
         May be incomplete
     end note
-    
+
     note right of Frozen
         Immutable
         Production reference
     end note
-    
+
     note right of Amendment
         Creates RFC-NNNN-VVV.md
         Version increments by 1
@@ -131,12 +190,7 @@ stateDiagram-v2
 
 **Format**: `rfc-{name}.md`
 
-Used for cross-cutting or unique RFCs that don't fit sequential numbering.
-
-**Examples**:
-- `rfc-namings.md` - Authoritative naming reference
-- `rfc-glossary.md` - Terminology definitions (future)
-- `rfc-index.md` - RFC index
+Used for cross-cutting RFCs: `rfc-namings.md`, `rfc-index.md`, etc.
 
 ### Versioned RFC Updates
 
@@ -157,78 +211,18 @@ Used for cross-cutting or unique RFCs that don't fit sequential numbering.
 
 ### Status Values
 
-An RFC must have exactly one of these statuses:
-
-#### Draft
-
-**Meaning**: Work in progress, subject to change
-
-**Characteristics**:
-- May be edited in place
-- May have incomplete sections
-- Not yet authoritative for implementation
-- May reference other Draft RFCs
-
-**When to use**: All new RFCs start as Draft
-
-#### Review
-
-**Meaning**: Ready for review, can be edited
-
-**Characteristics**:
-- Complete enough for review
-- Open for feedback and revisions
-- Near-final state
-
-**When to use**: When Draft is ready for official review
-
-#### Frozen
-
-**Meaning**: Immutable production reference
-
-**Characteristics**:
-- Cannot be edited (file is immutable)
-- Authoritative for implementation
-- Updates create new versioned files
-- Should be complete and reviewed
-
-**When to use**: When RFC is complete, reviewed, and approved
-
-#### Deprecated
-
-**Meaning**: No longer active
-
-**Characteristics**:
-- Superseded by another RFC or no longer relevant
-- Kept for historical reference
-
-**When to use**: When an RFC is replaced or retired
+| Status | Meaning | Editable? |
+|--------|---------|-----------|
+| **Draft** | Work in progress | Yes |
+| **Review** | Ready for review | Yes (with feedback) |
+| **Frozen** | Immutable production reference | No (create version) |
+| **Deprecated** | No longer active | No |
 
 ### Changing Status
 
-#### Draft → Review
-
-1. Complete the RFC
-2. Update status to `Status: Review`
-3. Request review from core team
-
-#### Review → Frozen
-
-1. Address review feedback
-2. Ensure consensus
-3. Update status to `Status: Frozen`
-4. Update `Last Updated` date
-5. Commit with message: `docs: freeze RFC-NNNN`
-
-#### Frozen → Amendment
-
-Frozen RFCs cannot have their status changed. To update:
-
-1. Create new file `RFC-NNNN-VVV.md`
-2. Copy full content from original
-3. Make necessary changes
-4. Update metadata (see Versioning Rules)
-5. Commit with message: `docs: add RFC-NNNN version VVV`
+- **Draft → Review**: Complete the RFC, update status, request review
+- **Review → Frozen**: Address feedback, ensure consensus, update status, commit with `docs: freeze RFC-NNNN`
+- **Frozen → Amendment**: Create new file `RFC-NNNN-VVV.md` with full content, commit with `docs: add RFC-NNNN version VVV`
 
 ---
 
@@ -245,25 +239,10 @@ Frozen RFCs cannot have their status changed. To update:
 
 Frozen RFCs are **immutable**. To make updates:
 
-#### Step 1: Create Version File
-
-Create a new file: `RFC-NNNN-VVV.md`
-
-- `VVV` is the next sequential version (001, 002, 003...)
-- If no versions exist, first version is 001
-- If `RFC-0001-003.md` exists, next version is 004
-
-#### Step 2: Copy Full Content
-
-Version files contain the **complete RFC**, not just diffs.
-
-- Copy entire content from parent RFC or previous version
-- Make your changes to the copy
-- Version file is standalone and complete
-
-#### Step 3: Update Metadata
-
-Versioned RFCs use different metadata:
+1. Create `RFC-NNNN-VVV.md` (next sequential version; first version is 001)
+2. Copy full content from original (version files are standalone and complete, not diffs)
+3. Make changes
+4. Update metadata:
 
 ```markdown
 # RFC-NNNN-VVV: [Title] (Update [V])
@@ -273,22 +252,20 @@ Versioned RFCs use different metadata:
 **Version**: VVV
 **Authors**: [Author names]
 **Created**: YYYY-MM-DD
-**Changes**: Brief summary of what changed in this version
+**Changes**: [Brief summary]
 **Supersedes**: RFC-NNNN or RFC-NNNN-002
-**Depends on**: [Same as parent or updated]
+**Depends on**: [RFC-XXXX, RFC-YYYY]
 ```
 
-#### Step 4: Version Increment Rules
+5. Update [rfc-index.md](rfc-index.md) with the new version entry
+
+### Version Increment Rules
 
 - Versions are sequential: 001, 002, 003, ...
 - No gaps in version numbers
 - Version 001 supersedes the base RFC-NNNN
 - Version 002 supersedes RFC-NNNN-001
 - And so on
-
-#### Step 5: Update RFC Index
-
-Add version entry to [rfc-index.md](rfc-index.md).
 
 ---
 
@@ -303,9 +280,10 @@ Use this template when creating new RFCs:
 **Authors**: [Your name(s)]
 **Created**: YYYY-MM-DD
 **Last Updated**: YYYY-MM-DD
-**Depends on**: [RFC-XXXX, RFC-YYYY, or "—" if none]
-**Supersedes**: [RFC-ZZZZ or "—" if none]
-**Stage**: [Optional: Core Engine | Storage | Distributed | API | etc.]
+**Depends on**: [RFC-XXXX, RFC-YYYY, or "---" if none]
+**Supersedes**: [RFC-ZZZZ or "---" if none]
+**Stage**: [Optional: e.g. Core | Storage | API]
+**Kind**: [Conceptual Design | Architecture Design | Implementation Interface Design]
 
 ---
 
@@ -320,7 +298,6 @@ Use this template when creating new RFCs:
 ### 2.1 Scope
 
 This RFC defines:
-
 * [What is specified]
 * [Key concepts covered]
 * [Boundaries of specification]
@@ -328,7 +305,6 @@ This RFC defines:
 ### 2.2 Non-Goals
 
 This RFC does **not** define:
-
 * [What is explicitly excluded]
 * [What is covered by other RFCs]
 * [Future work not in scope]
@@ -481,44 +457,14 @@ Use markdown links for all RFC references:
 - Link to sections: `[RFC-NNNN, Section 4](RFC-NNNN.md#4-design-principles)`
 - Link to versions: `[RFC-NNNN-VVV](RFC-NNNN-VVV.md)`
 
-### Diagrams
-
-Use mermaid for visualizations:
-
-- **Flowcharts**: Process flows and decision trees
-- **State diagrams**: Lifecycles and state machines
-- **Graph diagrams**: Dependencies and relationships
-- **Sequence diagrams**: Interactions and protocols
-
-Keep diagrams simple and focused on one concept.
-
-### Code Examples
-
-- Use syntax highlighting with language tags
-- Keep examples minimal and focused
-- Show both correct and incorrect usage when helpful
-- Include comments explaining non-obvious aspects
-
-### Tables
-
-Use tables for:
-
-- Categorization and taxonomy
-- Comparisons between alternatives
-- Lists of operators, types, or functions
-- Status and version tracking
-
 ### Terminology Management
 
-**Rule**: The [rfc-namings.md](rfc-namings.md) file **MUST** always reflect the latest terminology from current active RFCs.
+The [rfc-namings.md](rfc-namings.md) file **MUST** always reflect the latest terminology from active RFCs.
 
-- **MUST** keep rfc-namings.md synchronized with terminology used in active RFCs
+- **MUST** keep rfc-namings.md synchronized with terminology in active RFCs
 - **MUST NOT** include version history in rfc-namings.md (version history belongs in rfc-history.md)
-- **MUST** update rfc-namings.md when new terms are introduced in RFCs
-- **MUST** remove deprecated terms when RFCs are deprecated or removed
-- **SHOULD** record terminology changes in rfc-history.md, not in rfc-namings.md
-
-The rfc-namings.md file is a **living reference** that reflects the current state of terminology, not a historical record.
+- **MUST** update rfc-namings.md when new terms are introduced
+- **MUST** remove deprecated terms when RFCs are deprecated
 
 ---
 
@@ -532,14 +478,15 @@ The rfc-namings.md file is a **living reference** that reflects the current stat
 | `Authors` | Free text | RFC author(s) |
 | `Created` | `YYYY-MM-DD` | Date RFC was created |
 | `Last Updated` | `YYYY-MM-DD` | Date of most recent change |
-| `Depends on` | `RFC-NNNN, RFC-MMMM` or `—` | RFC dependencies |
-| `Supersedes` | `RFC-NNNN` or `—` | RFC this replaces |
+| `Depends on` | `RFC-NNNN, RFC-MMMM` or `---` | RFC dependencies |
+| `Supersedes` | `RFC-NNNN` or `---` | RFC this replaces |
 
 ### Optional Fields
 
 | Field | Format | Description |
 |-------|--------|-------------|
 | `Stage` | Free text | Development stage or subsystem |
+| `Kind` | `Conceptual Design`, `Architecture Design`, `Implementation Interface Design` | Spec kind |
 
 ### Additional Fields (Versioned RFCs Only)
 
@@ -547,7 +494,7 @@ The rfc-namings.md file is a **living reference** that reflects the current stat
 |-------|--------|-------------|
 | `Parent RFC` | `RFC-NNNN` | Original RFC being updated |
 | `Version` | `VVV` | Version number (001, 002, etc.) |
-| `Changes` | Free text | Summary of changes in this version |
+| `Changes` | Free text | Summary of changes |
 
 ---
 
@@ -588,10 +535,6 @@ The rfc-namings.md file is a **living reference** that reflects the current stat
 - Moving both forward together
 - Merging related drafts
 
-### Q: Can I reorganize section numbers in a version update?
-
-**A**: Yes, versioned RFCs can have different structures. Document structural changes in the "Changes in This Version" section.
-
 ### Q: How do I handle breaking changes?
 
 **A**: Create a new version and:
@@ -602,4 +545,4 @@ The rfc-namings.md file is a **living reference** that reflects the current stat
 
 ---
 
--**For questions or clarifications about RFC management, contact the {{PROJECT_NAME}} core team.**
+**For questions about RFC management, contact the {{PROJECT_NAME}} core team.**

@@ -9,79 +9,21 @@ A professional collection of Agent Skills for AI-powered [Platonic Coding](https
 
 **Platonic Coding** is a coding style designed for complex projects and cross-team collaboration with AI agents. Instead of relying on prompts, vibes, or implicit assumptions, it treats specifications as abstract laws that define what can exist, what can change, and what must always hold. Agents operate inside a shared, closed spec world where meaning is explicit, violations are detectable, and evolution is traceable over time, making large systems reproducible, reviewable, and stable across teams, agents, and long development cycles.
 
-![manifesto-infographic](./platonic-coding-manifesto.png)
+![manifesto-infographic](./manifesto.png)
 
-See a full description in [Manifesto](https://github.com/caesar0301/platonic-coding-skills/blob/main/PLATONIC_CODING_MANIFESTO.md).
+See a full description in [Manifesto](https://github.com/caesar0301/platonic-coding-skills/blob/main/MANIFESTO.md).
 
 ## Available Skills
 
-This repository provides production-ready Agent Skills that enhance Platonic Coding. All skills follow the [Agent Skills specification](https://agentskills.io/specification) for maximum compatibility across AI coding agents.
+All skills follow the [Agent Skills specification](https://agentskills.io/specification) for maximum compatibility across AI coding agents.
 
-### 📋 platonic-specs
-
-Manage RFC-style specifications with AI-driven operations.
-
-**Capabilities:**
-- Initialize new specification systems from templates
-- Generate and maintain RFC history, index, and terminology files
-- Validate consistency and cross-references
-- Check taxonomy and standard compliance
-- Comprehensive specification refinement
-
-**Use when:** Managing technical specifications, RFCs, documentation standards, terminology systems
-
-[**→ Full Documentation**](skills/platonic-specs/SKILL.md)
-
----
-
-### 📐 platonic-impl-guide
-
-Create concrete, project-specific implementation designs from RFC specifications.
-
-**Capabilities:**
-- Create implementation guides that translate RFC specs into implementation-ready designs
-- Validate guides against RFCs for contradictions
-- Update guides when RFCs change
-- Language-aware and framework-aware technical architecture
-
-**Use when:** Planning implementation of RFCs, creating detailed technical designs, documenting implementation architecture
-
-[**→ Full Documentation**](skills/platonic-impl-guide/SKILL.md)
-
----
-
-### ✅ platonic-code-review
-
-Review code implementation against specifications for consistency validation.
-
-**Capabilities:**
-- Validate code matches RFC specifications and requirements
-- Check feature completeness against specs
-- Identify gaps (specs without code, code without specs)
-- Find discrepancies where implementation differs from specs
-- Generate detailed compliance reports (default: report-only, no code modification)
-
-**Use when:** Validating implementation against specs, checking requirements compliance, ensuring spec-to-code consistency
-
-[**→ Full Documentation**](skills/platonic-code-review/SKILL.md)
-
----
-
-### 🔄 platonic-workflow
-
-Orchestrate the full Platonic Coding workflow from conceptual design to RFC, implementation guide, code, and review.
-
-**Capabilities:**
-- Always show current workflow phase (0–4, then FINISHED)
-- Phase 0: Interactive chat and optional items → design draft (default: `docs/drafts/`)
-- Phase 1: Generate RFC from draft (may ask for RFC index), then **platonic-specs** refine (default: `docs/specs/`)
-- Phase 2: **platonic-impl-guide** to create impl guide from RFC (may ask for RFC index) (default: `docs/impl/`)
-- Phase 3: Run coding agents to implement from guide
-- Phase 4: **platonic-code-review** for code vs specs and impl RFCs
-
-**Use when:** Running the full design → spec → impl guide → code → review workflow with clear phase visibility and handoffs
-
-[**→ Full Documentation**](skills/platonic-workflow/SKILL.md)
+| Skill | Purpose | Docs |
+|-------|---------|------|
+| 🚀 **platonic-init** | Bootstrap new projects or adopt Platonic Coding for existing codebases. Scaffolds `.platonic.yml`, specs infrastructure, and recovers design specs as Draft RFCs. | [SKILL.md](skills/platonic-init/SKILL.md) |
+| 📋 **platonic-specs** | Validate and manage RFC specifications — refine, generate index/history/terminology, check consistency and taxonomy compliance. *(For initialization, use platonic-init.)* | [SKILL.md](skills/platonic-specs/SKILL.md) |
+| 📐 **platonic-impl-guide** | Translate RFC specs into concrete, language-aware and framework-aware implementation guides. Create, validate, and update guides. | [SKILL.md](skills/platonic-impl-guide/SKILL.md) |
+| ✅ **platonic-code-review** | Review code against specs for consistency, completeness, and gaps. Generates compliance reports (report-only by default). | [SKILL.md](skills/platonic-code-review/SKILL.md) |
+| 🔄 **platonic-workflow** | Orchestrate the full five-phase workflow: design draft → RFC → impl guide → code → review, with clear phase visibility and skill handoffs. | [SKILL.md](skills/platonic-workflow/SKILL.md) |
 
 ## Installation
 
@@ -110,10 +52,21 @@ git clone https://github.com/caesar0301/platonic-coding-skills.git ~/.claude/ski
 
 ## General Workflow
 
-Platonic Coding follows a **five-phase, closed-world workflow**. Meaning is progressively *constrained*, *materialized*, and *verified* as the system moves from abstract intent to concrete code.
+Platonic Coding follows a **five-phase, closed-world workflow** with an initialization step. Meaning is progressively *constrained*, *materialized*, and *verified* as the system moves from abstract intent to concrete code.
 
 ```
-
+┌──────────────────────────────────────────────────────────────┐
+│ Init: Project Bootstrap (platonic-init)                      │
+│                                                              │
+│  • Set up .platonic.yml, specs/, docs/impl/, docs/drafts/    │
+│  • For existing codebases: scan, plan, and recover           │
+│    design specs as Draft RFCs                                │
+│                                                              │
+│  Output: Platonic Coding infrastructure (+ recovered RFCs)   │
+│  Skill:  platonic-init                                       │
+└───────────────┬──────────────────────────────────────────────┘
+                │
+                ▼
 ┌──────────────────────────────────────────────────────────────┐
 │ Phase 0: Conceptual Design & Requirements Elicitation        │
 │                                                              │
@@ -136,7 +89,7 @@ Platonic Coding follows a **five-phase, closed-world workflow**. Meaning is prog
 │  • Create a closed, legally-defined specification space      │
 │                                                              │
 │  Output: RFCs, index, history, terminology                   │
-│  Skill:  platonic-specs                                 │
+│  Skill:  platonic-specs                                      │
 └───────────────┬──────────────────────────────────────────────┘
                 │
                 ▼
@@ -180,9 +133,27 @@ Platonic Coding follows a **five-phase, closed-world workflow**. Meaning is prog
 
 ## Examples
 
-Examples are ordered by the general workflow: specs → impl guide → code (manual) → review. Each shows a single skill in action.
+Examples are ordered by the general workflow: init → specs → impl guide → code (manual) → review. Each shows a single skill in action.
 
-### Example 0: Full workflow (platonic-workflow)
+### Example 0: Initialize a new project (platonic-init)
+
+```
+Use platonic-init to set up Platonic Coding for my new project "Acme".
+Language is TypeScript, framework is Next.js. Specs go in specs/.
+```
+
+**Result:** `.platonic.yml` config, `specs/` directory with RFC infrastructure and templates, `docs/impl/` and `docs/drafts/` directories.
+
+### Example 1: Adopt Platonic Coding for an existing codebase (platonic-init)
+
+```
+Use platonic-init to recover design specs for this existing project.
+Scan the codebase and propose what RFCs to generate.
+```
+
+**Result:** Agent scans codebase, proposes a modular RFC dependency graph, and (after user confirmation) generates Draft RFCs capturing conceptual and architecture design, plus updated index/namings/history.
+
+### Example 2: Full workflow (platonic-workflow)
 
 ```
 Use the platonic-workflow skill to run the full workflow for a new feature.
@@ -192,17 +163,16 @@ stored settings, sync with backend, and UI in settings page.
 
 **Result:** Agent shows current phase; in Phase 0 conducts interactive design → design draft in `docs/drafts/`; in Phase 1 generates RFC and refines with platonic-specs; in Phase 2 creates impl guide with platonic-impl-guide; in Phase 3 implements code; in Phase 4 runs platonic-code-review; then FINISHED with summary.
 
-### Example 1: Create design specs (Phase 1)
+### Example 3: Maintain specifications (platonic-specs)
 
 ```
-I'm starting a new project called "AI Assistant Platform".
-Use the platonic-specs skill to initialize the
-specification system in docs/specs/
+Use the platonic-specs skill to refine all specifications in specs/,
+check consistency, and regenerate history, index, and namings.
 ```
 
-**Result:** RFC specification system with standard, history, index, and namings files.
+**Result:** Validated specifications with updated history, index, and terminology files.
 
-### Example 2: Create implementation guide (Phase 2)
+### Example 4: Create implementation guide (platonic-impl-guide)
 
 ```
 Use the platonic-impl-guide skill to create an implementation guide for
@@ -212,47 +182,38 @@ the existing Express patterns in this repo.
 
 **Result:** Implementation guide with module structure, types, interfaces, and implementation details aligned with the RFC.
 
-### Example 3: Implement from guide (Phase 3)
+### Example 5: Implement from guide (Phase 3)
 
 ```
 Implement the user authentication feature following docs/impl/rfc-001-auth-impl.md
-and docs/specs/rfc-001-authentication.md. Do not deviate from the spec or the guide.
+and specs/rfc-001-authentication.md. Do not deviate from the spec or the guide.
 ```
 
 **Result:** Code that matches the implementation guide and the RFC (no separate skill; the agent uses the docs as source of truth).
 
-### Example 4: Review code against spec (Phase 4)
+### Example 6: Review code against spec (platonic-code-review)
 
 ```
 Use the platonic-code-review skill to verify that src/auth/
-correctly implements all requirements from docs/specs/rfc-001-authentication.md.
+correctly implements all requirements from specs/rfc-001-authentication.md.
 ```
 
 **Result:** Compliance report showing what is implemented, what is missing, and what is inconsistent.
 
-### Example 5: Maintain specifications
-
-```
-Use the platonic-specs skill to refine all specifications in docs/specs/,
-check consistency, and regenerate history, index, and namings.
-```
-
-**Result:** Validated specifications with updated history, index, and terminology files.
-
-### Example 6: Gap analysis
+### Example 7: Gap analysis (platonic-code-review)
 
 ```
 Use the platonic-code-review skill to identify gaps between
-all RFCs in docs/specs/ and the implementation in src/.
+all RFCs in specs/ and the implementation in src/.
 ```
 
 **Result:** Bi-directional analysis of unimplemented specs and undocumented code.
 
-### Example 7: Validate implementation guide
+### Example 8: Validate implementation guide (platonic-impl-guide)
 
 ```
 Use the platonic-impl-guide skill to validate that docs/impl/rfc-001-auth-impl.md
-does not contradict docs/specs/rfc-001-authentication.md.
+does not contradict specs/rfc-001-authentication.md.
 ```
 
 **Result:** Validation report confirming the guide is spec-compliant or listing contradictions to fix.

@@ -14,6 +14,8 @@ This document defines the process, conventions, and guidelines for creating and 
 6. [Versioning Rules](#versioning-rules)
 7. [RFC Template](#rfc-template)
 8. [Best Practices](#best-practices)
+9. [Metadata Fields Reference](#metadata-fields-reference)
+10. [FAQ](#faq)
 
 ---
 
@@ -112,9 +114,29 @@ Do NOT create an RFC for:
 
 ### RFC Lifecycle
 
-```
-Draft → Review → Frozen
-Frozen → Amendment (creates RFC-NNNN-VVV.md)
+```mermaid
+stateDiagram-v2
+    [*] --> Draft: Create RFC
+    Draft --> Review: Request review
+    Review --> Draft: Revisions needed
+    Review --> Frozen: Approved
+    Frozen --> Amendment: Need changes
+    Amendment --> Frozen: Create versioned RFC
+
+    note right of Draft
+        Editable in place
+        May be incomplete
+    end note
+
+    note right of Frozen
+        Immutable
+        Production reference
+    end note
+
+    note right of Amendment
+        Creates RFC-NNNN-VVV.md
+        Version increments by 1
+    end note
 ```
 
 #### Stage 1: Draft
@@ -123,17 +145,29 @@ Frozen → Amendment (creates RFC-NNNN-VVV.md)
 - Author iterates on design
 - May be edited freely in place
 - Incomplete sections are acceptable
+- Other engineers may provide feedback
 
 #### Stage 2: Review
 
 - Author requests review when RFC is complete
-- Core team reviews for completeness, consistency, correctness, clarity
+- Core team reviews for:
+  - Completeness
+  - Consistency with other RFCs
+  - Technical correctness
+  - Clarity and readability
 
 #### Stage 3: Frozen
 
 - RFC is marked `Status: Frozen`
 - Becomes immutable production reference
+- Implementation may begin or continue
 - Any changes require creating a versioned update
+
+### Who Can Freeze an RFC
+
+- Core team members with architecture responsibility
+- Project maintainers
+- Requires consensus among reviewers
 
 ---
 
@@ -145,7 +179,12 @@ Frozen → Amendment (creates RFC-NNNN-VVV.md)
 
 - `NNNN`: 4-digit zero-padded number (0001, 0002, etc.)
 - Sequential numbering
-- Numbers are reserved once assigned
+- Numbers are reserved once assigned, even if RFC is deleted
+
+**Examples**:
+- `RFC-0001.md` - First RFC
+- `RFC-0042.md` - Forty-second RFC
+- `RFC-0100.md` - One hundredth RFC
 
 ### Special RFCs
 
@@ -157,9 +196,14 @@ Used for cross-cutting RFCs: `rfc-namings.md`, `rfc-index.md`, etc.
 
 **Format**: `RFC-NNNN-VVV.md`
 
-- `NNNN`: Original RFC number
+- `NNNN`: Original RFC number (4-digit padded)
 - `VVV`: Version number (3-digit padded, starting at 001)
 - Used only for updates to frozen RFCs
+
+**Examples**:
+- `RFC-0001-001.md` - First update to RFC-0001
+- `RFC-0001-002.md` - Second update to RFC-0001
+- `RFC-0042-015.md` - Fifteenth update to RFC-0042
 
 ---
 
@@ -177,8 +221,8 @@ Used for cross-cutting RFCs: `rfc-namings.md`, `rfc-index.md`, etc.
 ### Changing Status
 
 - **Draft → Review**: Complete the RFC, update status, request review
-- **Review → Frozen**: Address feedback, ensure consensus, update status
-- **Frozen → Amendment**: Create new file `RFC-NNNN-VVV.md` with full content
+- **Review → Frozen**: Address feedback, ensure consensus, update status, commit with `docs: freeze RFC-NNNN`
+- **Frozen → Amendment**: Create new file `RFC-NNNN-VVV.md` with full content, commit with `docs: add RFC-NNNN version VVV`
 
 ---
 
@@ -188,13 +232,15 @@ Used for cross-cutting RFCs: `rfc-namings.md`, `rfc-index.md`, etc.
 
 - Edit in place
 - Update `Last Updated` field when making changes
+- No version numbers needed
+- Once frozen, versioning rules apply
 
 ### For Frozen RFCs
 
 Frozen RFCs are **immutable**. To make updates:
 
-1. Create `RFC-NNNN-VVV.md` (next sequential version)
-2. Copy full content from original
+1. Create `RFC-NNNN-VVV.md` (next sequential version; first version is 001)
+2. Copy full content from original (version files are standalone and complete, not diffs)
 3. Make changes
 4. Update metadata:
 
@@ -210,6 +256,16 @@ Frozen RFCs are **immutable**. To make updates:
 **Supersedes**: RFC-NNNN or RFC-NNNN-002
 **Depends on**: [RFC-XXXX, RFC-YYYY]
 ```
+
+5. Update [rfc-index.md](rfc-index.md) with the new version entry
+
+### Version Increment Rules
+
+- Versions are sequential: 001, 002, 003, ...
+- No gaps in version numbers
+- Version 001 supersedes the base RFC-NNNN
+- Version 002 supersedes RFC-NNNN-001
+- And so on
 
 ---
 
@@ -243,54 +299,115 @@ Use this template when creating new RFCs:
 
 This RFC defines:
 * [What is specified]
+* [Key concepts covered]
+* [Boundaries of specification]
 
 ### 2.2 Non-Goals
 
 This RFC does **not** define:
 * [What is explicitly excluded]
+* [What is covered by other RFCs]
+* [Future work not in scope]
 
 ---
 
 ## 3. Background & Motivation
 
-[Why is this RFC needed?]
+[Why is this RFC needed? What problem does it solve?]
 
 ---
 
 ## 4. Design Principles
 
+[Core principles guiding the design, typically 3-5 items]
+
 1. **Principle 1**: Description
 2. **Principle 2**: Description
+3. **Principle 3**: Description
 
 ---
 
 ## 5. [Main Content Sections]
 
-[Organize specification into logical sections]
+[Organize your specification into logical sections]
+
+### 5.1 [Subsection]
+
+[Detailed specification content]
 
 ---
 
 ## 6. Examples
 
-[Concrete examples]
+[Concrete examples demonstrating the specification]
 
 ---
 
 ## 7. Relationship to Other RFCs
 
+[How this RFC relates to and depends on other RFCs]
+
 * **RFC-XXXX**: [Relationship]
+* **RFC-YYYY**: [Relationship]
 
 ---
 
 ## 8. Open Questions
 
+[Optional: Unresolved questions or future work]
+
 * [Question 1]
+* [Question 2]
 
 ---
 
 ## 9. Conclusion
 
-[1-2 paragraphs summarizing key takeaways]
+[1-2 paragraphs summarizing the key takeaways]
+
+> **Optional quotable summary of the RFC's core contribution**
+```
+
+### Template for Versioned RFCs
+
+```markdown
+# RFC-NNNN-VVV: [Title] (Update [V])
+
+**Status**: Frozen
+**Parent RFC**: RFC-NNNN
+**Version**: VVV
+**Authors**: [Author names]
+**Created**: YYYY-MM-DD
+**Changes**: [Brief summary of what changed in this version]
+**Supersedes**: RFC-NNNN or RFC-NNNN-002
+**Depends on**: [RFC-XXXX, RFC-YYYY]
+
+---
+
+## Changes in This Version
+
+[Detailed description of changes from previous version]
+
+### Modified Sections
+
+- **Section X**: [What changed and why]
+- **Section Y**: [What changed and why]
+
+### New Sections
+
+- **Section Z**: [What was added and why]
+
+### Deprecated Content
+
+- **Section W**: [What was removed and why]
+
+---
+
+[Full RFC content follows - complete document, not diffs]
+
+## 1. Abstract
+
+[...]
 ```
 
 ---
@@ -299,16 +416,28 @@ This RFC does **not** define:
 
 ### Writing Style
 
-1. **Be precise**: Use normative keywords (MUST, SHOULD, MAY) per RFC 2119
+1. **Be precise**: Use normative keywords (MUST, SHOULD, MAY) consistently
 2. **Be clear**: Avoid ambiguity; prefer explicit specifications
 3. **Be complete**: Cover all relevant cases and edge conditions
-4. **Be concise**: Focus on content over verbosity
-5. **Use examples**: Illustrate complex concepts concretely
+4. **Be concise**: Remove unnecessary words; focus on content
+5. **Use examples**: Illustrate complex concepts with concrete examples
+
+### Normative Keywords
+
+Follow RFC 2119 conventions:
+
+- **MUST / REQUIRED / SHALL**: Absolute requirement
+- **MUST NOT / SHALL NOT**: Absolute prohibition
+- **SHOULD / RECOMMENDED**: Strong recommendation, exceptions possible
+- **SHOULD NOT / NOT RECOMMENDED**: Strong discouragement
+- **MAY / OPTIONAL**: Truly optional
 
 ### Structure
 
 - Use consistent heading levels
 - Group related concepts together
+- Put foundational concepts before advanced topics
+- Include a Table of Contents for long RFCs (>1000 lines)
 - Use tables for comparisons and categorization
 - Use code blocks for syntax and examples
 - Use diagrams (mermaid) for complex relationships
@@ -322,6 +451,8 @@ This RFC does **not** define:
 
 ### Cross-References
 
+Use markdown links for all RFC references:
+
 - Link to RFCs: `[RFC-NNNN](RFC-NNNN.md)`
 - Link to sections: `[RFC-NNNN, Section 4](RFC-NNNN.md#4-design-principles)`
 - Link to versions: `[RFC-NNNN-VVV](RFC-NNNN-VVV.md)`
@@ -331,6 +462,7 @@ This RFC does **not** define:
 The [rfc-namings.md](rfc-namings.md) file **MUST** always reflect the latest terminology from active RFCs.
 
 - **MUST** keep rfc-namings.md synchronized with terminology in active RFCs
+- **MUST NOT** include version history in rfc-namings.md (version history belongs in rfc-history.md)
 - **MUST** update rfc-namings.md when new terms are introduced
 - **MUST** remove deprecated terms when RFCs are deprecated
 
@@ -363,6 +495,53 @@ The [rfc-namings.md](rfc-namings.md) file **MUST** always reflect the latest ter
 | `Parent RFC` | `RFC-NNNN` | Original RFC being updated |
 | `Version` | `VVV` | Version number (001, 002, etc.) |
 | `Changes` | Free text | Summary of changes |
+
+---
+
+## FAQ
+
+### Q: When should I freeze an RFC?
+
+**A**: Freeze an RFC when:
+- Implementation is starting or in progress
+- Other RFCs need to depend on it with stability
+- The design is reviewed and approved
+- You want to prevent accidental changes
+
+### Q: Can I edit a frozen RFC to fix typos?
+
+**A**: No. Even typo fixes require creating a new version. This preserves the historical record and ensures immutability.
+
+### Q: What if I need to make a small change to a frozen RFC?
+
+**A**: Create a new version (`RFC-NNNN-001.md`) with the full content. Even small changes require versions. This maintains consistency and traceability.
+
+### Q: How do I know what version number to use?
+
+**A**: Find the highest existing version and add 1. If no versions exist, use 001. Check both the filesystem and [rfc-index.md](rfc-index.md).
+
+### Q: Can I skip version numbers?
+
+**A**: No. Versions must be sequential with no gaps (001, 002, 003, ...).
+
+### Q: Should I delete old versions?
+
+**A**: No. Keep all versions for historical reference and traceability.
+
+### Q: What if my RFC depends on a Draft RFC?
+
+**A**: That's fine while both are drafts. Consider:
+- Freezing dependencies first
+- Moving both forward together
+- Merging related drafts
+
+### Q: How do I handle breaking changes?
+
+**A**: Create a new version and:
+- Clearly document breaking changes in "Changes" section
+- Provide migration guidance
+- Consider deprecation period if widely implemented
+- Update dependent RFCs if needed
 
 ---
 

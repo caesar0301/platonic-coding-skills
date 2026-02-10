@@ -1,48 +1,36 @@
-# RFC-History: {{PROJECT_NAME}} RFC Change History
+# {{PROJECT_NAME}} RFC Change History
 
-**Status**: Living Document
-**Authors**: {{PROJECT_NAME}} Core Team
-**Created**: YYYY-MM-DD
-**Last Updated**: YYYY-MM-DD
+This document tracks all RFC lifecycle events in chronological order (newest first).
 
 ---
 
-## 1. Overview
-
-This document records all **lifecycle events** of RFCs in the {{PROJECT_NAME}} project, including creation, status changes, version updates, and deprecation.
-
-It is a **living document** that evolves as RFCs evolve.
-
----
-
-## 2. Event Types
+## Event Types
 
 | Event | Description |
 |-------|-------------|
-| Created | Initial creation of an RFC |
-| Updated | Content update to a Draft RFC |
-| Frozen | RFC status changed from Draft/Review to Frozen |
-| Version Released | New version created for a Frozen RFC |
-| Deprecated | RFC marked as deprecated or removed |
-| Reference Updated | Updated references to other RFCs |
+| **Created** | New RFC document created |
+| **Updated** | Draft or Review RFC modified |
+| **Frozen** | RFC status changed to Frozen |
+| **Version Released** | New version of frozen RFC created |
+| **Deprecated** | RFC deprecated |
+| **Reference Updated** | Supporting doc (index, namings, etc.) updated |
 
 ---
 
-## 3. Change History
+## Change History
 
-<!-- This section is generated dynamically by generate_history.py -->
-
----
-
-## 4. Version Update Records
-
-| Parent RFC | Version File | Version | Release Date | Major Changes |
-|-----------|--------------|---------|--------------|---------------|
+_No events recorded yet. Events will be added as RFCs are created and modified._
 
 ---
 
-## 5. Related Documents
+## Version Update Records
 
-- [rfc-standard.md](rfc-standard.md) - RFC Specifications and Management Guide
-- [rfc-namings.md](rfc-namings.md) - Terminology Standardization Reference
-- [rfc-index.md](rfc-index.md) - RFC Index and Status Overview
+_No versioned RFC updates yet._
+
+---
+
+## Related Documents
+
+- [rfc-standard.md](rfc-standard.md) - RFC process and conventions
+- [rfc-index.md](rfc-index.md) - RFC index
+- [rfc-namings.md](rfc-namings.md) - Terminology reference

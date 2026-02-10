@@ -3,6 +3,94 @@
 This document summarizes the changes made to align the platonic-coding-skills project with the [Agent Skills](https://agentskills.io) standard.
 
 ## Date
+2026-02-10
+
+## Version 1.0.2 — New Skill: platonic-init & Scope Refinements (2026-02-10)
+
+### New Skill: platonic-init
+
+**Added:** `platonic-init` skill for initializing the Platonic Coding system on any project.
+
+**Purpose:**
+- Bootstrap new (greenfield) projects with `.platonic.yml`, specs directory, templates, and impl guide scaffolding
+- Adopt Platonic Coding for existing codebases by scanning code and recovering design specs as Draft RFCs
+- Propose modular RFC dependency graphs (Conceptual, Architecture, and optionally Impl Interface Design)
+- Populate rfc-index.md, rfc-namings.md, and rfc-history.md from recovered specs
+
+**Operations:**
+1. **Scaffold Project** – Create directories, config, and templates
+2. **Scan Project** – Systematically analyze existing codebase
+3. **Plan Modular Specs** – Propose RFC dependency graph from scan results
+4. **Recover Conceptual** – Generate conceptual design spec from code
+5. **Recover Architecture** – Generate architecture design spec from code
+6. **Recover Impl Interface** – Generate impl interface design spec from code (optional)
+
+**File Structure:**
+```
+platonic-init/
+├── SKILL.md              # Agent Skills definition
+├── assets/               # Templates (12 files)
+│   ├── platonic.yml.template
+│   ├── rfc-standard.md.template
+│   ├── rfc-history.md.template
+│   ├── rfc-index.md.template
+│   ├── rfc-namings.md.template
+│   ├── rfc-template.md
+│   ├── conceptual-design.md.template
+│   ├── architecture-design.md.template
+│   ├── impl-interface-design.md.template
+│   ├── impl-guide-template.md
+│   ├── impl-readme.md.template
+│   └── drafts-readme.md.template
+└── references/           # Operation guides (7 files)
+    ├── REFERENCE.md
+    ├── scaffold-project.md
+    ├── scan-project.md
+    ├── plan-modular-specs.md
+    ├── recover-conceptual.md
+    ├── recover-architecture.md
+    └── recover-impl-interface.md
+```
+
+**Key Features:**
+- Two modes: Greenfield Init (new projects) and Recovery Init (existing codebases)
+- Three spec kinds: Conceptual Design, Architecture Design, Impl Interface Design
+- User confirmation required before generating RFCs
+- Bounded RFC count (default max: 5) to keep specs focused and manageable
+
+### Scope Change: platonic-specs
+
+**Changed:** `platonic-specs` no longer handles project initialization.
+
+- Initialization (scaffolding directories, config, templates) has been extracted into `platonic-init`
+- `platonic-specs` now focuses exclusively on **validation and management** of existing specs:
+  - Refine specifications
+  - Generate history, index, and terminology files
+  - Validate consistency and cross-references
+  - Check taxonomy and standard compliance
+
+### Version Bumps
+
+All skills updated to **version 1.0.2**:
+- `platonic-init` — 1.0.2 (new)
+- `platonic-specs` — 1.0.1 → 1.0.2
+- `platonic-impl-guide` — 1.0.1 → 1.0.2
+- `platonic-code-review` — 1.0.1 → 1.0.2
+- `platonic-workflow` — 1.0.1 → 1.0.2
+
+### Manifesto Renamed
+
+- `PLATONIC_CODING_MANIFESTO.md` → `MANIFESTO.md`
+- `platonic-coding-manifesto.png` → `manifesto.png`
+
+### Also Updated
+
+- Root `README.md` – Added platonic-init to Available Skills, updated platonic-specs description, added init examples, updated workflow diagram
+- `.claude-plugin/marketplace.json` – Registered platonic-init skill, updated versions and descriptions
+
+---
+
+## Date
 2026-02-01
 
 ## New Skill: platonic-impl-guide (2026-02-01)

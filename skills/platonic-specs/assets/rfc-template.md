@@ -4,9 +4,10 @@
 **Authors**: [Your name(s)]
 **Created**: YYYY-MM-DD
 **Last Updated**: YYYY-MM-DD
-**Depends on**: [RFC-XXXX, RFC-YYYY, or "—" if none]
-**Supersedes**: [RFC-ZZZZ or "—" if none]
-**Stage**: [Optional: Core Engine | Storage | Distributed | API | etc.]
+**Depends on**: [RFC-XXXX, RFC-YYYY, or "---" if none]
+**Supersedes**: [RFC-ZZZZ or "---" if none]
+**Stage**: [Optional: e.g. Core | Storage | API]
+**Kind**: [Conceptual Design | Architecture Design | Implementation Interface Design]
 
 ---
 

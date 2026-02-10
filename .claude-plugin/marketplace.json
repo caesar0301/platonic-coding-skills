@@ -9,10 +9,12 @@
     "url": "https://github.com/caesar0301/platonic-coding-skills"
   },
   "metadata": {
-    "version": "1.0.1",
-    "description": "Professional Agent Skills collection for AI-powered development workflows. Includes comprehensive skills for RFC specification management, implementation guides, and code review, following the Agent Skills standard from agentskills.io",
+    "version": "1.0.2",
+    "description": "Professional Agent Skills collection for AI-powered Platonic Coding workflows. Includes skills for project initialization, RFC specification management, implementation guides, code review, and end-to-end workflow orchestration, following the Agent Skills standard from agentskills.io",
     "keywords": [
       "agent-skills",
+      "platonic-coding",
+      "initialization",
       "code-review",
       "specifications",
       "rfc",
@@ -26,10 +28,27 @@
   },
   "skills": [
     {
+      "name": "platonic-init",
+      "path": "skills/platonic-init",
+      "description": "Initialize the Platonic Coding system for any project. Scaffolds specs infrastructure and scans existing codebases to recover missing design specs as Draft RFCs",
+      "version": "1.0.2",
+      "category": "initialization",
+      "tags": [
+        "init",
+        "bootstrap",
+        "setup",
+        "adopt",
+        "recover",
+        "specs",
+        "rfc",
+        "project-setup"
+      ]
+    },
+    {
       "name": "platonic-workflow",
       "path": "skills/platonic-workflow",
       "description": "Orchestrate the full Platonic Coding workflow from design draft to RFC, impl guide, code, and review. Always shows current phase; invokes platonic-specs, platonic-impl-guide, and platonic-code-review",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "category": "workflow",
       "tags": [
         "workflow",
@@ -44,36 +63,23 @@
     {
       "name": "platonic-specs",
       "path": "skills/platonic-specs",
-      "description": "Manage RFC-style specifications with templates, validation, and dynamic generation of history, index, and namings files",
-      "version": "1.0.1",
+      "description": "Manage and validate RFC-style specifications with dynamic generation of history, index, and namings files. For project initialization, use platonic-init instead",
+      "version": "1.0.2",
       "category": "documentation",
       "tags": [
         "rfc",
         "specifications",
         "documentation",
         "validation",
-        "taxonomy"
-      ]
-    },
-    {
-      "name": "platonic-code-review",
-      "path": "skills/platonic-code-review",
-      "description": "Review code implementation against specifications to ensure consistency and completeness. Validates spec-to-code alignment and generates compliance reports",
-      "version": "1.0.1",
-      "category": "validation",
-      "tags": [
-        "spec-compliance",
-        "validation",
-        "consistency-check",
-        "requirements",
-        "gap-analysis"
+        "taxonomy",
+        "refinement"
       ]
     },
     {
       "name": "platonic-impl-guide",
       "path": "skills/platonic-impl-guide",
       "description": "Create implementation guides that translate RFC specifications into concrete, project-specific technical designs. Language-aware and framework-aware",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "category": "implementation",
       "tags": [
         "implementation-guide",
@@ -81,6 +87,20 @@
         "architecture",
         "rfc-implementation",
         "module-design"
+      ]
+    },
+    {
+      "name": "platonic-code-review",
+      "path": "skills/platonic-code-review",
+      "description": "Review code implementation against specifications to ensure consistency and completeness. Validates spec-to-code alignment and generates compliance reports",
+      "version": "1.0.2",
+      "category": "validation",
+      "tags": [
+        "spec-compliance",
+        "validation",
+        "consistency-check",
+        "requirements",
+        "gap-analysis"
       ]
     }
   ],
