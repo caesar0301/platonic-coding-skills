@@ -128,7 +128,7 @@ After creating the guide:
 ## Example
 
 **Input**:
-- RFC: `specs/RFC-0042.md` (Message Queue Protocol)
+- RFC: `docs/specs/RFC-0042.md` (Message Queue Protocol)
 - Target Module: `acme-queue`
 - Language: Rust
 - Framework: Tokio (async runtime)

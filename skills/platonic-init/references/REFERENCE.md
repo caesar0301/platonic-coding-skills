@@ -65,7 +65,7 @@ For projects with existing code:
 
 **Output**:
 - `.platonic.yml` at project root
-- `specs/` directory with rfc-standard.md, rfc-history.md, rfc-index.md, rfc-namings.md, templates/
+- `docs/specs/` directory with rfc-standard.md, rfc-history.md, rfc-index.md, rfc-namings.md, templates/
 - `docs/impl/` directory with README.md
 - `docs/drafts/` directory with README.md
 
@@ -192,7 +192,7 @@ platonic-init/
 ```
 1. User: "Initialize platonic coding for my new project Acme (TypeScript/Next.js)"
 2. Agent: Reads scaffold-project.md
-3. Agent: Creates .platonic.yml, specs/, docs/impl/, docs/drafts/ with all templates
+3. Agent: Creates .platonic.yml, docs/specs/, docs/impl/, docs/drafts/ with all templates
 4. Done — user starts with platonic-workflow Phase 0
 ```
 
@@ -243,5 +243,5 @@ platonic-init/
 
 - **platonic-specs**: Use `refine` post-init to validate and update specs. This skill handles all initialization that was previously part of platonic-specs.
 - **platonic-workflow**: After init, start at appropriate phase for new features
-- **platonic-impl-guide**: Create implementation guides from recovered specs
+- **platonic-impl**: Create implementation guides and implement code from recovered specs
 - **platonic-code-review**: Review code against recovered specs

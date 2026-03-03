@@ -14,7 +14,7 @@ Set up the directory structure, configuration file, RFC infrastructure, and temp
 | Project root | Yes | Current directory | Root directory of the project |
 | Language | No | Auto-detect | Primary programming language |
 | Framework | No | Auto-detect | Framework if applicable |
-| Specs path | No | `specs` | Path for RFC specifications |
+| Specs path | No | `docs/specs` | Path for RFC specifications |
 | Impl path | No | `docs/impl` | Path for implementation guides |
 | Drafts path | No | `docs/drafts` | Path for design drafts |
 

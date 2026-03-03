@@ -21,9 +21,9 @@ All skills follow the [Agent Skills specification](https://agentskills.io/specif
 |-------|---------|------|
 | 🚀 **platonic-init** | Bootstrap new projects or adopt Platonic Coding for existing codebases. Scaffolds `.platonic.yml`, specs infrastructure, and recovers design specs as Draft RFCs. | [SKILL.md](skills/platonic-init/SKILL.md) |
 | 📋 **platonic-specs** | Validate and manage RFC specifications — refine, generate index/history/terminology, check consistency and taxonomy compliance. *(For initialization, use platonic-init.)* | [SKILL.md](skills/platonic-specs/SKILL.md) |
-| 📐 **platonic-impl-guide** | Translate RFC specs into concrete, language-aware and framework-aware implementation guides. Create, validate, and update guides. | [SKILL.md](skills/platonic-impl-guide/SKILL.md) |
+| 📐 **platonic-impl** | Translate RFC specs into concrete implementation guides, then implement code with unit and integration tests. Manages the full spec-to-code pipeline with user confirmation gates. | [SKILL.md](skills/platonic-impl/SKILL.md) |
 | ✅ **platonic-code-review** | Review code against specs for consistency, completeness, and gaps. Generates compliance reports (report-only by default). | [SKILL.md](skills/platonic-code-review/SKILL.md) |
-| 🔄 **platonic-workflow** | Orchestrate the full five-phase workflow: design draft → RFC → impl guide → code → review, with clear phase visibility and skill handoffs. | [SKILL.md](skills/platonic-workflow/SKILL.md) |
+| 🔄 **platonic-workflow** | Orchestrate the full four-phase workflow: design draft → RFC → implementation (guide + code) → review, with clear phase visibility and skill handoffs. | [SKILL.md](skills/platonic-workflow/SKILL.md) |
 
 ## Installation
 
@@ -52,13 +52,13 @@ git clone https://github.com/caesar0301/platonic-coding-skills.git ~/.claude/ski
 
 ## General Workflow
 
-Platonic Coding follows a **five-phase, closed-world workflow** with an initialization step. Meaning is progressively *constrained*, *materialized*, and *verified* as the system moves from abstract intent to concrete code.
+Platonic Coding follows a **four-phase, closed-world workflow** with an initialization step. Meaning is progressively *constrained*, *materialized*, and *verified* as the system moves from abstract intent to concrete code.
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
 │ Init: Project Bootstrap (platonic-init)                      │
 │                                                              │
-│  • Set up .platonic.yml, specs/, docs/impl/, docs/drafts/    │
+│  • Set up .platonic.yml, docs/specs/, docs/impl/, docs/drafts/    │
 │  • For existing codebases: scan, plan, and recover           │
 │    design specs as Draft RFCs                                │
 │                                                              │
@@ -94,32 +94,22 @@ Platonic Coding follows a **five-phase, closed-world workflow** with an initiali
                 │
                 ▼
 ┌──────────────────────────────────────────────────────────────┐
-│ Phase 2: Implementation Guide (Spec → Concrete Design)       │
+│ Phase 2: Implementation (Guide + Code)                       │
 │                                                              │
 │  • Translate RFCs into implementation-ready architecture     │
-│  • Fix language, framework, module boundaries, and APIs      │
-│  • Make all design decisions explicit and traceable          │
-│  • Validate against RFCs (no new meaning allowed)            │
+│  • Design impl guide with types, interfaces, module layout   │
+│  • Generate coding plan with file-level task breakdown       │
+│  • Write code strictly following guide and RFCs              │
+│  • Include unit and integration tests                        │
+│  • User confirmation gates after guide and coding plan       │
 │                                                              │
-│  Output: Implementation guides                               │
-│  Skill:  platonic-impl-guide                                 │
+│  Output: Implementation guide + source code + tests          │
+│  Skill:  platonic-impl                                       │
 └───────────────┬──────────────────────────────────────────────┘
                 │
                 ▼
 ┌──────────────────────────────────────────────────────────────┐
-│ Phase 3: Code Implementation (Mechanical Realization)        │
-│                                                              │
-│  • Write code strictly following guides and RFCs             │
-│  • No speculative design or undocumented behavior            │
-│  • Code is a realization, not a source of truth              │
-│                                                              │
-│  Output: Source code                                         │
-│  Tooling: agent uses specs & guides as law                   │
-└───────────────┬──────────────────────────────────────────────┘
-                │
-                ▼
-┌──────────────────────────────────────────────────────────────┐
-│ Phase 4: Spec Compliance Review (Reality Check)              │
+│ Phase 3: Spec Compliance Review (Reality Check)              │
 │                                                              │
 │  • Verify code against RFCs and implementation guides        │
 │  • Detect gaps, drift, and contradictions                    │
@@ -133,16 +123,16 @@ Platonic Coding follows a **five-phase, closed-world workflow** with an initiali
 
 ## Examples
 
-Examples are ordered by the general workflow: init → specs → impl guide → code (manual) → review. Each shows a single skill in action.
+Examples are ordered by the general workflow: init → specs → impl → review. Each shows a single skill in action.
 
 ### Example 0: Initialize a new project (platonic-init)
 
 ```
 Use platonic-init to set up Platonic Coding for my new project "Acme".
-Language is TypeScript, framework is Next.js. Specs go in specs/.
+Language is TypeScript, framework is Next.js. Specs go in docs/specs/.
 ```
 
-**Result:** `.platonic.yml` config, `specs/` directory with RFC infrastructure and templates, `docs/impl/` and `docs/drafts/` directories.
+**Result:** `.platonic.yml` config, `docs/specs/` directory with RFC infrastructure and templates, `docs/impl/` and `docs/drafts/` directories.
 
 ### Example 1: Adopt Platonic Coding for an existing codebase (platonic-init)
 
@@ -161,59 +151,69 @@ Start at Phase 0: I want to add a "user preferences" feature — we need
 stored settings, sync with backend, and UI in settings page.
 ```
 
-**Result:** Agent shows current phase; in Phase 0 conducts interactive design → design draft in `docs/drafts/`; in Phase 1 generates RFC and refines with platonic-specs; in Phase 2 creates impl guide with platonic-impl-guide; in Phase 3 implements code; in Phase 4 runs platonic-code-review; then FINISHED with summary.
+**Result:** Agent shows current phase; in Phase 0 conducts interactive design → design draft in `docs/drafts/`; in Phase 1 generates RFC and refines with platonic-specs; in Phase 2 creates impl guide (confirms with user), generates coding plan (confirms with user), then implements code with tests; in Phase 3 runs platonic-code-review; then FINISHED with summary.
 
 ### Example 3: Maintain specifications (platonic-specs)
 
 ```
-Use the platonic-specs skill to refine all specifications in specs/,
+Use the platonic-specs skill to refine all specifications in docs/specs/,
 check consistency, and regenerate history, index, and namings.
 ```
 
 **Result:** Validated specifications with updated history, index, and terminology files.
 
-### Example 4: Create implementation guide (platonic-impl-guide)
+### Example 4: Full implementation from spec (platonic-impl)
 
 ```
-Use the platonic-impl-guide skill to create an implementation guide for
-RFC-001 (Authentication) targeting the auth module. Use TypeScript and
-the existing Express patterns in this repo.
+Use the platonic-impl skill to implement RFC-001 (Authentication) 
+targeting the auth module. Use TypeScript and the existing Express 
+patterns in this repo. Include tests.
+```
+
+**Result:** Agent analyzes spec, creates impl guide (waits for confirmation), generates coding plan (waits for confirmation), then implements code with unit and integration tests.
+
+### Example 5: Create implementation guide only (platonic-impl)
+
+```
+Use the platonic-impl skill to create an implementation guide for
+RFC-001 (Authentication) targeting the auth module. Guide only, 
+no coding.
 ```
 
 **Result:** Implementation guide with module structure, types, interfaces, and implementation details aligned with the RFC.
 
-### Example 5: Implement from guide (Phase 3)
+### Example 6: Implement from existing guide (platonic-impl)
 
 ```
-Implement the user authentication feature following docs/impl/rfc-001-auth-impl.md
-and specs/rfc-001-authentication.md. Do not deviate from the spec or the guide.
+Use platonic-impl to implement code from docs/impl/rfc-001-auth-impl.md
+following docs/specs/rfc-001-authentication.md. Include unit and integration tests.
 ```
 
-**Result:** Code that matches the implementation guide and the RFC (no separate skill; the agent uses the docs as source of truth).
+**Result:** Code + tests that match the implementation guide and the RFC.
 
-### Example 6: Review code against spec (platonic-code-review)
+### Example 7: Review code against spec (platonic-code-review)
 
 ```
 Use the platonic-code-review skill to verify that src/auth/
-correctly implements all requirements from specs/rfc-001-authentication.md.
+correctly implements all requirements from docs/specs/rfc-001-authentication.md.
 ```
 
 **Result:** Compliance report showing what is implemented, what is missing, and what is inconsistent.
 
-### Example 7: Gap analysis (platonic-code-review)
+### Example 8: Gap analysis (platonic-code-review)
 
 ```
 Use the platonic-code-review skill to identify gaps between
-all RFCs in specs/ and the implementation in src/.
+all RFCs in docs/specs/ and the implementation in src/.
 ```
 
 **Result:** Bi-directional analysis of unimplemented specs and undocumented code.
 
-### Example 8: Validate implementation guide (platonic-impl-guide)
+### Example 9: Validate implementation guide (platonic-impl)
 
 ```
-Use the platonic-impl-guide skill to validate that docs/impl/rfc-001-auth-impl.md
-does not contradict specs/rfc-001-authentication.md.
+Use the platonic-impl skill to validate that docs/impl/rfc-001-auth-impl.md
+does not contradict docs/specs/rfc-001-authentication.md.
 ```
 
 **Result:** Validation report confirming the guide is spec-compliant or listing contradictions to fix.

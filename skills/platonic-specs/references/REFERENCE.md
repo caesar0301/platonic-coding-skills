@@ -288,7 +288,7 @@ platonic-specs/
 
 2. Review the generated rfc-standard.md and customize if needed
 
-3. Create your first RFC using specs/templates/rfc-template.md as a guide
+3. Create your first RFC using docs/specs/templates/rfc-template.md as a guide
 ```
 
 ### Example 2: Weekly Maintenance

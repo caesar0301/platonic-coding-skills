@@ -29,15 +29,21 @@ Implementation guides **supersede** RFC specs with concrete details but **MUST N
 
 ## Creating a New Guide
 
-Use the **platonic-impl-guide** skill to create implementation guides:
+Use the **platonic-impl** skill to create implementation guides and implement code:
 
 ```
-Use platonic-impl-guide to create a guide for RFC-NNNN targeting the <module-name> module.
+Use platonic-impl to implement RFC-NNNN targeting the <module-name> module.
+```
+
+Or create a guide only (without coding):
+
+```
+Use platonic-impl to create a guide for RFC-NNNN targeting the <module-name> module.
 ```
 
 ## Guide Template
 
-Use the **platonic-impl-guide** skill which includes its own template for generating implementation guides.
+Use the **platonic-impl** skill which includes its own template for generating implementation guides.
 
 ## Naming Convention
 

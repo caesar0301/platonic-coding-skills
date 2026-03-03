@@ -3,7 +3,7 @@ name: platonic-init
 description: Initialize the Platonic Coding system for any project. Scaffolds specs infrastructure (.platonic.yml, RFC templates, impl guide directory) and scans existing codebases to recover missing conceptual and architecture design specs as Draft RFCs. Use when adopting platonic coding for a new or existing project.
 license: MIT
 metadata:
-  version: "1.0.2"
+  version: "1.0.3"
   author: "Xiaming Chen"
   category: "initialization"
 ---
@@ -32,7 +32,7 @@ This skill operates in one of two modes:
 Scaffolds the Platonic Coding infrastructure only:
 
 - `.platonic.yml` project config at project root
-- `specs/` directory with RFC infrastructure and templates
+- `docs/specs/` directory with RFC infrastructure and templates
 - `docs/impl/` directory for implementation guides
 - `docs/drafts/` directory for Phase 0 design drafts
 
@@ -86,7 +86,7 @@ See [references/REFERENCE.md](references/REFERENCE.md) for detailed operation gu
 ```
 <project-root>/
 ├── .platonic.yml                   # Project config (auto-discovered by all platonic skills)
-├── specs/                          # Default; user-configurable
+├── docs/specs/                    # Default; user-configurable
 │   ├── rfc-standard.md             # RFC process & conventions (includes spec kinds)
 │   ├── rfc-history.md              # Change history
 │   ├── rfc-index.md                # Spec index
@@ -126,7 +126,7 @@ Templates use `{{PLACEHOLDER}}` syntax. Common placeholders: `{{PROJECT_NAME}}`,
 
 ```
 Use platonic-init to set up Platonic Coding for my new project "Acme".
-Language is TypeScript, framework is Next.js. Specs go in specs/.
+Language is TypeScript, framework is Next.js. Specs go in docs/specs/.
 ```
 
 ### Example 2: Adopt Platonic Coding for Existing Code
@@ -160,6 +160,6 @@ and impl guides in docs/design/. Generate up to 4 RFCs.
 ## Integration with Other Skills
 
 - **platonic-specs**: Use `refine` operation post-init to validate and update recovered specs
-- **platonic-workflow**: After init, start at Phase 2 (impl guide) for new features
-- **platonic-impl-guide**: Create implementation guides from recovered RFC specs
+- **platonic-workflow**: After init, start at Phase 2 (implementation) for new features
+- **platonic-impl**: Create implementation guides and implement code from recovered RFC specs
 - **platonic-code-review**: Review code against recovered specs

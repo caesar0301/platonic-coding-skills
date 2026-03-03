@@ -9,7 +9,7 @@ project:
   framework: "{{FRAMEWORK}}"     # e.g. tokio, django, nextjs, spring (leave empty if none)
 
 paths:
-  specs: "specs"                  # Where RFC specifications live
+  specs: "docs/specs"             # Where RFC specifications live
   impl: "docs/impl"              # Where implementation guides live
   drafts: "docs/drafts"          # Where Phase 0 design drafts live
 

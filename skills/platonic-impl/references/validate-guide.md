@@ -10,7 +10,7 @@ Implementation guides **supersede** RFC specs in the sense that they provide con
 
 1. Implementation guide document exists
 2. Source RFC document(s) are available
-3. Project terminology reference is available (`specs/rfc-namings.md`)
+3. Project terminology reference is available (`docs/specs/rfc-namings.md`)
 
 ## Input Requirements
 
@@ -18,7 +18,7 @@ Implementation guides **supersede** RFC specs in the sense that they provide con
 |-------|----------|-------------|
 | Implementation Guide | Yes | Path to the implementation guide |
 | Source RFC(s) | Yes | Path(s) to source RFC specification(s) |
-| Namings Reference | No | Path to terminology reference (default: `specs/rfc-namings.md`) |
+| Namings Reference | No | Path to terminology reference (default: `docs/specs/rfc-namings.md`) |
 
 ## Validation Categories
 
@@ -88,13 +88,13 @@ Find statements that conflict with RFC.
 
 | Category | Status | Issues |
 |----------|--------|--------|
-| Invariant Preservation | ✅ PASS / ❌ FAIL | N |
-| Requirement Coverage | ✅ PASS / ❌ FAIL | N |
-| Constraint Compliance | ✅ PASS / ❌ FAIL | N |
-| Terminology Consistency | ✅ PASS / ❌ FAIL | N |
-| Contradiction Detection | ✅ PASS / ❌ FAIL | N |
+| Invariant Preservation | PASS / FAIL | N |
+| Requirement Coverage | PASS / FAIL | N |
+| Constraint Compliance | PASS / FAIL | N |
+| Terminology Consistency | PASS / FAIL | N |
+| Contradiction Detection | PASS / FAIL | N |
 
-**Overall Status**: ✅ COMPLIANT / ❌ NON-COMPLIANT
+**Overall Status**: COMPLIANT / NON-COMPLIANT
 
 ## Detailed Findings
 
@@ -136,7 +136,7 @@ Find statements that conflict with RFC.
 
 **Input**:
 - Guide: `docs/impl/queue_impl.md`
-- RFC: `specs/RFC-0042.md`
+- RFC: `docs/specs/RFC-0042.md`
 
 **Validation**:
 1. Check RFC-0042 invariants (at-least-once delivery, message ordering)

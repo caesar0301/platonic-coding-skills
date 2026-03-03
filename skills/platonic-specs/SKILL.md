@@ -3,7 +3,7 @@ name: platonic-specs
 description: Manage RFC-style specifications with validation, and dynamic generation of history, index, and namings files. Use when validating RFC documents, checking taxonomy compliance, or generating specification indices and terminology references.
 license: MIT
 metadata:
-  version: "1.0.2"
+  version: "1.0.3"
   author: "Xiaming Chen"
   category: "documentation"
 ---

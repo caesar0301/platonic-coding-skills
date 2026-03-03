@@ -2,6 +2,88 @@
 
 This document summarizes the changes made to align the platonic-coding-skills project with the [Agent Skills](https://agentskills.io) standard.
 
+## Version 1.0.3 — Merged Implementation Phases & New platonic-impl Skill (2026-03-03)
+
+### Merged Phases: Implementation Guide + Code Implementation
+
+**Changed:** The workflow now has **4 phases** instead of 5. Old Phase 2 (Implementation Guide) and Phase 3 (Code Implementation) have been merged into a single **Phase 2: Implementation (Guide + Code)**. Old Phase 4 (Review) is now **Phase 3**.
+
+**New phase structure:**
+- Phase 0: Conceptual Design & Design Draft (unchanged)
+- Phase 1: RFC Specification (unchanged)
+- Phase 2: Implementation — impl guide + coding plan + code with tests (merged)
+- Phase 3: Spec Compliance Review (was Phase 4)
+
+### New Skill: platonic-impl (replaces platonic-impl-guide)
+
+**Renamed and expanded:** `platonic-impl-guide` → `platonic-impl` with full implementation lifecycle support.
+
+**Purpose:**
+- Translate RFC specifications into concrete implementation guides (carried from old skill)
+- Generate coding plans with file-level task breakdowns (new)
+- Implement code following the guide with unit and integration tests (new)
+- Run the full spec-to-code pipeline as a four-step sub-workflow (new)
+- Validate and update implementation guides (carried from old skill)
+
+**Default sub-workflow:**
+1. Spec analysis — extract requirements from RFC
+2. Impl guide design — create architecture doc (user confirmation gate)
+3. Coding plan — ordered task breakdown (user confirmation gate)
+4. Coding — implement code with unit and integration tests
+
+**Confirmation gates:** On by default; intelligently skipped for trivially small scopes or when user explicitly requests auto mode.
+
+**Operations:**
+1. **Full Impl** (`full-impl.md`) — End-to-end: spec → guide → plan → code + tests (new)
+2. **Create Guide** (`create-guide.md`) — Create implementation guide only (carried)
+3. **Implement Code** (`implement-code.md`) — Code from existing guide (new)
+4. **Validate Guide** (`validate-guide.md`) — Check guide vs RFC (carried)
+5. **Update Guide** (`update-guide.md`) — Sync guide with RFC changes (carried)
+
+**New templates:**
+- `coding-plan-template.md` — Template for coding plan artifacts
+
+**File Structure:**
+```
+platonic-impl/
+├── SKILL.md
+├── references/
+│   ├── REFERENCE.md
+│   ├── full-impl.md          # NEW
+│   ├── create-guide.md
+│   ├── implement-code.md     # NEW
+│   ├── validate-guide.md
+│   └── update-guide.md
+└── assets/
+    ├── impl-guide-template.md
+    └── coding-plan-template.md  # NEW
+```
+
+### Updated: platonic-workflow
+
+- Reduced from 5 phases to 4 phases
+- Phase 2 now delegates to `platonic-impl` full-impl operation (guide + code)
+- Phase 3 is now Spec Compliance Review (was Phase 4)
+- Removed `phase-3-implementation.md` and `phase-4-review.md`
+- Added `phase-2-implementation.md` and `phase-3-review.md`
+
+### Version Bumps
+
+All skills updated to **version 1.0.3**:
+- `platonic-init` — 1.0.2 → 1.0.3
+- `platonic-specs` — 1.0.2 → 1.0.3
+- `platonic-impl` — new (replaces platonic-impl-guide 1.0.2)
+- `platonic-code-review` — 1.0.2 → 1.0.3
+- `platonic-workflow` — 1.0.2 → 1.0.3
+
+### Also Updated
+
+- Root `README.md` — Updated workflow diagram (4 phases), skill descriptions, and examples
+- `.claude-plugin/marketplace.json` — Updated platonic-impl description and version
+- `platonic-init` — Updated integration references for platonic-impl
+
+---
+
 ## Date
 2026-02-10
 
@@ -74,7 +156,7 @@ platonic-init/
 All skills updated to **version 1.0.2**:
 - `platonic-init` — 1.0.2 (new)
 - `platonic-specs` — 1.0.1 → 1.0.2
-- `platonic-impl-guide` — 1.0.1 → 1.0.2
+- `platonic-impl` — 1.0.1 → 1.0.2
 - `platonic-code-review` — 1.0.1 → 1.0.2
 - `platonic-workflow` — 1.0.1 → 1.0.2
 
@@ -93,9 +175,9 @@ All skills updated to **version 1.0.2**:
 ## Date
 2026-02-01
 
-## New Skill: platonic-impl-guide (2026-02-01)
+## New Skill: platonic-impl (2026-02-01)
 
-**Added:** `platonic-impl-guide` skill for creating implementation guides from RFC specifications.
+**Added:** `platonic-impl` skill for creating implementation guides from RFC specifications.
 
 **Purpose:**
 - Translate RFC specifications into concrete, implementation-ready designs
@@ -110,7 +192,7 @@ All skills updated to **version 1.0.2**:
 
 **File Structure:**
 ```
-platonic-impl-guide/
+platonic-impl/
 ├── SKILL.md              # Agent Skills definition
 ├── references/           # Operation guides
 │   ├── REFERENCE.md
@@ -128,8 +210,8 @@ platonic-impl-guide/
 - Traceability from implementation decisions back to specs
 
 **Also updated:**
-- Root `README.md` – Added platonic-impl-guide to Available Skills, examples, and workflows; all skill links point to SKILL.md
-- `.claude-plugin/marketplace.json` – Registered platonic-impl-guide skill
+- Root `README.md` – Added platonic-impl to Available Skills, examples, and workflows; all skill links point to SKILL.md
+- `.claude-plugin/marketplace.json` – Registered platonic-impl skill
 
 ---
 
