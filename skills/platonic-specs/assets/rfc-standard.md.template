@@ -175,8 +175,9 @@ stateDiagram-v2
 
 ### Numbered RFCs
 
-**Format**: `RFC-NNNN.md`
+**Filename convention**: RFC spec files MUST be named `RFC-NNNN.md`.
 
+- `RFC`: Capital letters (literal)
 - `NNNN`: 4-digit zero-padded number (0001, 0002, etc.)
 - Sequential numbering
 - Numbers are reserved once assigned, even if RFC is deleted

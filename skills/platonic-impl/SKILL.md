@@ -3,7 +3,7 @@ name: platonic-impl
 description: Translate RFC specifications into concrete implementation guides and then implement them as code. Manages the full implementation lifecycle from spec analysis through architecture design, coding plan, and code with tests. Use when creating implementation guides, implementing features from specs, or running the full spec-to-code pipeline.
 license: MIT
 metadata:
-  version: "1.0.3"
+  version: "1.1.0"
   author: "Xiaming Chen"
   category: "implementation"
 ---
@@ -183,8 +183,8 @@ and the existing Express patterns in this repo.
 ### Example 3: Implement from Existing Guide
 
 ```
-Use platonic-impl to implement code from docs/impl/rfc-001-auth-impl.md
-following docs/specs/rfc-001-authentication.md. Include unit and integration tests.
+Use platonic-impl to implement code from docs/impl/RFC-0001-impl.md
+following docs/specs/RFC-0001.md. Include unit and integration tests.
 ```
 
 **Result**: Code + tests that match the implementation guide and the RFC.

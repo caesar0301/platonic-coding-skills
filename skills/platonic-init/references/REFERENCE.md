@@ -210,7 +210,7 @@ platonic-init/
 6. Agent: Reads recover-conceptual.md — generates RFC-0001
 7. Agent: Reads recover-architecture.md — generates RFC-0002, RFC-0003
 8. Agent: Populates rfc-index.md, rfc-namings.md, rfc-history.md
-9. Done — user reviews Draft RFCs, then uses platonic-workflow Phase 2+ for new features
+9. Done — user reviews Draft RFCs, then uses platonic-workflow Phase 2 to implement them, or Phase 0 for brand-new features
 ```
 
 ### Example 3: Recovery with Custom Count

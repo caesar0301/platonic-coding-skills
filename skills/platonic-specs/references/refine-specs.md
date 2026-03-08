@@ -15,9 +15,8 @@ This is a comprehensive operation that performs multiple checks and updates:
 
 1. Validate consistency between RFC files
 2. Check taxonomy consistency
-3. Sync namings with current RFCs
-4. Check standard compliance
-5. Generate updated history, index, and namings files
+3. Check standard compliance
+4. Generate updated history, index, and namings files
 
 ## Step 1: Validate Consistency
 
@@ -31,19 +30,13 @@ This is a comprehensive operation that performs multiple checks and updates:
 
 **Expected Output**: Taxonomy consistency report
 
-## Step 3: Sync Namings
-
-**Read**: `references/generate-namings.md` and apply it to update rfc-namings.md.
-
-**Expected Output**: Updated rfc-namings.md file
-
-## Step 4: Check Standard Compliance
+## Step 3: Check Standard Compliance
 
 **Read**: `references/check-standard-compliance.md` and apply it to the specs directory.
 
 **Expected Output**: Compliance report with errors and warnings
 
-## Step 5: Generate Dynamic Files
+## Step 4: Generate Dynamic Files
 
 Perform these operations in order:
 
@@ -64,8 +57,8 @@ After completing all steps, provide:
 
 **Important**: Execute steps in this exact order:
 
-1. Validation checks (Steps 1, 2, 4) - these are read-only
-2. Generation operations (Step 3, Step 5) - these modify files
+1. Validation checks (Steps 1, 2, 3) - these are read-only
+2. Generation operations (Step 4) - these modify files
 
 This ensures you have complete information before making changes.
 

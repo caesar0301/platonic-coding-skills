@@ -10,7 +10,7 @@ Produce a **concrete implementation guide** from the Phase 1 RFC spec, then **im
 
 ## Inputs
 
-- **RFC spec**: From Phase 1 (default `docs/specs/`, e.g. `rfc-NNN-<title>.md`).
+- **RFC spec**: From Phase 1 (default `docs/specs/`, filename convention `RFC-NNNN.md`, e.g. `RFC-0001.md`).
 - **RFC number/index** (optional): If the user has not specified for which RFC to implement, ask (e.g., "For which RFC should I create the implementation?").
 - **Target module/language/framework**: From user or inferred from codebase.
 
@@ -30,13 +30,13 @@ Produce a **concrete implementation guide** from the Phase 1 RFC spec, then **im
   1. **Spec Analysis**: Read the RFC, extract all requirements, constraints, invariants
   2. **Impl Guide Design**: Create a concrete implementation guide document
      - **Confirmation gate**: Present the guide to the user and wait for approval (default behavior)
-     - Save to `docs/impl/` (e.g., `docs/impl/rfc-001-auth-impl.md`)
+     - Save to `docs/impl/` (e.g., `docs/impl/RFC-0001-impl.md`)
   3. **Coding Plan**: Break the guide into ordered tasks with file-level changes and test tasks
      - **Confirmation gate**: Present the coding plan to the user and wait for approval (default behavior)
   4. **Coding**: Implement all tasks, write unit and integration tests
 
 - Inputs to platonic-impl:
-  - RFC document path (e.g., `docs/specs/rfc-001-authentication.md`)
+  - RFC document path (e.g., `docs/specs/RFC-0001.md`)
   - Target module name
   - Language and optional framework
   - Output path for guide: default `docs/impl/`
@@ -49,7 +49,7 @@ Produce a **concrete implementation guide** from the Phase 1 RFC spec, then **im
 
 ## Output
 
-- **Implementation guide** document in `docs/impl/` (e.g., `rfc-NNN-<feature>-impl.md`)
+- **Implementation guide** document in `docs/impl/` (e.g., `RFC-0001-impl.md`)
 - **Source code** in the codebase implementing the feature
 - **Unit tests** for individual components
 - **Integration tests** for cross-component behavior

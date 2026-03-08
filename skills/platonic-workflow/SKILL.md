@@ -3,7 +3,7 @@ name: platonic-workflow
 description: Orchestrate the full Platonic Coding workflow from conceptual design to RFC specs, implementation (guide + code with tests), and spec-compliance review. Always shows current phase; uses interactive chat in Phase 0, invokes platonic-specs in Phase 1, platonic-impl in Phase 2 (impl guide + coding), and platonic-code-review in Phase 3.
 license: MIT
 metadata:
-  version: "1.0.3"
+  version: "1.1.0"
   author: "Xiaming Chen"
   category: "workflow"
 ---

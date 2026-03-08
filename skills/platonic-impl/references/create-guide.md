@@ -133,7 +133,7 @@ After creating the guide:
 - Language: Rust
 - Framework: Tokio (async runtime)
 
-**Output**: `docs/impl/queue_impl.md`
+**Output**: `docs/impl/RFC-0042-impl.md`
 
 The guide would include:
 - Crate structure for `acme-queue`

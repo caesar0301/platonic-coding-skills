@@ -165,7 +165,7 @@ check consistency, and regenerate history, index, and namings.
 ### Example 4: Full implementation from spec (platonic-impl)
 
 ```
-Use the platonic-impl skill to implement RFC-001 (Authentication) 
+Use the platonic-impl skill to implement RFC-0001 (Authentication) 
 targeting the auth module. Use TypeScript and the existing Express 
 patterns in this repo. Include tests.
 ```
@@ -176,7 +176,7 @@ patterns in this repo. Include tests.
 
 ```
 Use the platonic-impl skill to create an implementation guide for
-RFC-001 (Authentication) targeting the auth module. Guide only, 
+RFC-0001 (Authentication) targeting the auth module. Guide only, 
 no coding.
 ```
 
@@ -185,8 +185,8 @@ no coding.
 ### Example 6: Implement from existing guide (platonic-impl)
 
 ```
-Use platonic-impl to implement code from docs/impl/rfc-001-auth-impl.md
-following docs/specs/rfc-001-authentication.md. Include unit and integration tests.
+Use platonic-impl to implement code from docs/impl/RFC-0001-impl.md
+following docs/specs/RFC-0001.md. Include unit and integration tests.
 ```
 
 **Result:** Code + tests that match the implementation guide and the RFC.
@@ -195,7 +195,7 @@ following docs/specs/rfc-001-authentication.md. Include unit and integration tes
 
 ```
 Use the platonic-code-review skill to verify that src/auth/
-correctly implements all requirements from docs/specs/rfc-001-authentication.md.
+correctly implements all requirements from docs/specs/RFC-0001.md.
 ```
 
 **Result:** Compliance report showing what is implemented, what is missing, and what is inconsistent.
@@ -212,8 +212,8 @@ all RFCs in docs/specs/ and the implementation in src/.
 ### Example 9: Validate implementation guide (platonic-impl)
 
 ```
-Use the platonic-impl skill to validate that docs/impl/rfc-001-auth-impl.md
-does not contradict docs/specs/rfc-001-authentication.md.
+Use the platonic-impl skill to validate that docs/impl/RFC-0001-impl.md
+does not contradict docs/specs/RFC-0001.md.
 ```
 
 **Result:** Validation report confirming the guide is spec-compliant or listing contradictions to fix.

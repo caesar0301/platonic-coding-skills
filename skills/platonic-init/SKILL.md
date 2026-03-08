@@ -3,7 +3,7 @@ name: platonic-init
 description: Initialize the Platonic Coding system for any project. Scaffolds specs infrastructure (.platonic.yml, RFC templates, impl guide directory) and scans existing codebases to recover missing conceptual and architecture design specs as Draft RFCs. Use when adopting platonic coding for a new or existing project.
 license: MIT
 metadata:
-  version: "1.0.3"
+  version: "1.1.0"
   author: "Xiaming Chen"
   category: "initialization"
 ---
@@ -160,6 +160,6 @@ and impl guides in docs/design/. Generate up to 4 RFCs.
 ## Integration with Other Skills
 
 - **platonic-specs**: Use `refine` operation post-init to validate and update recovered specs
-- **platonic-workflow**: After init, start at Phase 2 (implementation) for new features
+- **platonic-workflow**: After init with recovery, use Phase 2 to implement the recovered RFCs; for brand-new features, start at Phase 0 (conceptual design)
 - **platonic-impl**: Create implementation guides and implement code from recovered RFC specs
 - **platonic-code-review**: Review code against recovered specs

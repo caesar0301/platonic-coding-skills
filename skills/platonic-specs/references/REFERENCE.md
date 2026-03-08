@@ -176,7 +176,7 @@ from all active RFCs in ./specs/
 - **Cross-references**: Verify all RFC references point to existing files
 - **Dependencies**: Check dependency chains are valid
 - **Metadata**: Ensure required fields are present and valid
-- **Status values**: Verify status is one of: Draft, Active, Deprecated, Superseded
+- **Status values**: Verify status is one of: Draft, Review, Frozen, Deprecated
 - **Date formats**: Check all dates use YYYY-MM-DD format
 
 **Output**:
@@ -230,7 +230,7 @@ consistency across ./specs/
 - Required sections are present
 - Metadata format is correct
 - Numbering follows conventions
-- File naming follows pattern (rfc-NNN-title.md)
+- File naming follows pattern (RFC-NNNN.md)
 
 **Output**:
 - Compliance report with errors and warnings per RFC
@@ -284,7 +284,7 @@ platonic-specs/
 
 ```
 1. Use platonic-init to scaffold the project's Platonic Coding infrastructure
-   (creates specs/, docs/impl/, docs/drafts/, .platonic.yml)
+   (creates docs/specs/, docs/impl/, docs/drafts/, .platonic.yml)
 
 2. Review the generated rfc-standard.md and customize if needed
 

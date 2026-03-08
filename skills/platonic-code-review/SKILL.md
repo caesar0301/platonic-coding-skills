@@ -3,7 +3,7 @@ name: platonic-code-review
 description: Review code implementation against specifications to ensure consistency and completeness. Use when validating that code correctly implements RFC specs, requirements documents, or design specifications. Generates reports by default without modifying code.
 license: MIT
 metadata:
-  version: "1.0.3"
+  version: "1.1.0"
   author: "Xiaming Chen"
   category: "validation"
 ---
@@ -53,7 +53,7 @@ The standard review process follows these steps:
 ### Step 1: Understand Specifications
 
 - Locate and read relevant specification documents
-  - RFC documents (rfc-*.md)
+  - RFC documents (RFC-NNNN.md convention)
   - Requirements documents
   - Design documents
   - API specifications
@@ -183,7 +183,7 @@ Reviews generate structured reports:
 
 ```
 Use platonic-code-review to review the implementation of 
-rfc-001-user-authentication.md in the src/auth/ directory.
+RFC-0001.md (user authentication) in the src/auth/ directory.
 Generate a report showing what's implemented and what's missing.
 ```
 
@@ -199,7 +199,7 @@ Focus on API endpoints, data structures, and error handling.
 
 ```
 Use platonic-code-review to verify that all features 
-specified in rfc-005-payment-processing.md are fully 
+specified in RFC-0005.md (payment processing) are fully 
 implemented in src/payments/. Generate a detailed checklist.
 ```
 
